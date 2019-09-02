@@ -1,0 +1,958 @@
+@import url('https://fonts.googleapis.com/css?family=Great Vibes:100,200,300,400,500,600,700|Exo:100,200,300,400,500,600,700|Roboto:100,200,300,400,500,600,700');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    font-family: "Roboto", sans-serif;
+    font-size: 1em;
+    font-weight: 400;
+    background-image: url(/assets/images/background.jpg);
+    background-size: cover;
+}
+
+.body-wraper {
+    display: flex;
+    flex-direction: column;
+}
+
+.game-board {
+    height: 100vh;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cards {
+    min-width: 103px;
+    height: 125px;
+    position: relative;
+    transition: transform .5s;
+    margin: 3px;
+}
+
+.front-face,
+.back-face {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 5px;
+    backface-visibility: hidden;
+}
+
+/* INDEX */
+
+.index-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    padding-top: 8vh;
+    font-weight: 700;
+}
+
+.level-selection-box {
+    width: 280px;
+    height: 100px;
+    padding: 10px;
+    background-color: rgba(96, 93, 49, 0.248);
+    border: 2px solid rgba(0, 0, 0, 0.5);    margin: 20px auto;
+    border-radius: 10px;
+}
+
+.difficulty-level-text {
+    justify-content: center;
+    color: #fafafa;
+    text-shadow: 2px 2px 5px #000;
+    margin: 2px 0 5px 0;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.difficulty-level-button {
+    justify-content: center;
+    align-content: center;
+    margin: 0;
+}
+
+.game-instructions-box {
+    width: 280px;
+    height: auto;
+    padding: 10px;
+    background-color: rgba(96, 93, 49, 0.248);
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+.game-instructions-title {
+    justify-content: center;
+    color: #fafafa;
+    text-shadow: 2px 2px 5px #000;
+    margin: 2px 0 5px 0;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+/* Bootstrap 4 BTN-DARK color with reduced opacity*/
+.btn-dark {
+    background-color: #343a40bd;
+}
+
+.game-instructions-text {
+    display: flex;
+    background-color: #343a40bd;
+    font-size: 0.9rem;
+    text-align: center;
+    color: #fafafa;
+    text-shadow: 1px 1px 2px #000;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    margin: 3px 3px;
+    padding: 5px 10px 5px 10px;
+}
+
+.start-game-box {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 280px;
+    height: auto;
+    padding: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 10px; 
+}
+
+/* Bootstrap 4 BTN-DARK color with reduced opacity*/
+.btn-outline-dark:hover{
+    background-color: #343a40bd;
+}
+
+.play-button{
+    margin: 0 10px 0 0;
+    font-size: 50px;
+}
+
+.start-game-text {
+    align-content: center;
+    justify-content: left;
+    margin: 0;
+    font-size: 1.7rem;
+    font-weight: 400;
+}
+
+
+/* -----------------------------------
+    MEDIA QUERY
+-------------------------------------- */
+/*Mobile screen less than 360px Iphone SE*/
+@media (max-width: 359px) {
+    .cards {
+        min-width: 82px;
+        height: 100px;
+        position: relative;
+        transition: transform .5s;
+        margin: 3px;
+    }
+}
+
+@media (min-width: 575px) {
+
+.cards {
+    min-width: 127px;
+    height: 155px;
+    position: relative;
+    transition: transform .5s;
+    margin: 3px;
+}
+
+}
+
+@media (min-width: 694px){
+    .cards {
+        width: 156px;
+        height: 190px;
+        position: relative;
+        transition: transform .5s;
+        
+    }
+
+}
+
+@media (min-width: 1328px) {
+
+    .game-board {
+        width: 70vw;
+        height: 70vh;
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .cards {
+        width: 230px;
+        height: 280px;
+        position: relative;
+        transition: transform .5s;
+        margin: 3px;
+    }
+}
+
+/*  Projeto 1 modelo
+
+
+body {
+    font-family: "Roboto", sans-serif;
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1.7;
+    overflow: hidden;
+}
+
+p {
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.sectors-title,
+.sectors-title-white,
+.sectors-title-follow {
+    margin-top: 30px;
+}
+
+.sectors-title,
+.sectors-title-white,
+.sectors-title-follow,
+h1 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.sectors-title-white h1 {
+    color: #eeeaea;
+}
+
+
+/* -----------------------------------
+    HEADER - MOBILE
+-------------------------------------- 
+
+.main-header {
+    background-image: url(../images/st-main-mobile.jpg);
+    height: 75vh;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size: cover;
+    overflow-y: auto;
+}
+
+
+.header-name {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 95%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+    margin: 1vh 0 0 0;
+    padding: 0;
+
+}
+
+.header-name h1 {
+    font-family: "Roboto", sans-serif;
+    background-color: rgba(0, 0, 0, 0.1);
+    font-size: 2.4rem;
+    border-radius: 5px;
+    font-weight: 400;
+    text-shadow: 2px 2px 5px #000;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fafafa;
+    text-align: center;
+
+}
+
+/* -----------------------------------
+    SOCIAL MEDIA TOP-RIGHT
+-------------------------------------- 
+
+.media-links-top {
+    padding: 16px;
+    margin: 0;
+    position: relative;
+    text-align: right;
+}
+
+.social-links {
+    margin: 0;
+}
+
+.social-links li a i {
+    width: 32px;
+    height: 32px;
+    padding: 12px 0;
+    border-radius: 50px;
+    font-size: 13px;
+    line-height: 7px;
+    text-align: center;
+    color: #fafafa;
+    background: #443b3b;
+    transition: all 0.35s ease-in-out;
+    -moz-transition: all 0.35s ease-in-out;
+    -webkit-transition: all 0.35s ease-in-out;
+    -o-transition: all 0.35s ease-in-out;
+}
+
+.social-links li a i:hover {
+    background: #700000;
+}
+
+/* -----------------------------------
+    MUSIC - MOBILE DISPLAY
+-------------------------------------- 
+
+.music-main {
+    background-image: url(../images/bg-music-mobile.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+}
+
+.music-players-column {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: transparent;
+    margin-bottom: 6vh;
+}
+
+.apple-music {
+    padding: 6vh 0 1vh 0;
+}
+
+.spotify,
+.youtube-music,
+.amazon-music {
+    padding: 4vh 0 1vh 0;
+    margin: 0;
+}
+
+img.players {
+    max-width: 100%;
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+    -webkit-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+
+}
+
+img.players:hover {
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
+    -webkit-transition: 0.3s ease-in-out;
+    -o-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+}
+
+/* -----------------------------------
+    VIDEOS - MOBILE DISPLAY
+-------------------------------------- 
+
+.videos-main {
+    padding: 0 0 5vh 0;
+    background-color: #000;
+    background-repeat: no-repeat;
+    overflow-y: none;
+}
+
+.embed-video-player {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-top: 3vh;
+}
+
+.carousel-videos {
+    padding: 0;
+    margin: 0;
+    z-index: 0;
+}
+
+.box-thumbs-videos {
+    background-color: #000;
+    position: relative;
+    padding: 0;
+    margin: 0 1px;
+}
+
+.video-youtube:hover .figure-youtube {
+    -webkit-filter: brightness(120%);
+    -webkit-animation-name: pulse;
+    animation-name: pulse;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-delay: .2s;
+    -webkit-animation-timing-function: ease;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-duration: 1s;
+    -moz-animation-delay: .2s;
+    -moz-animation-timing-function: ease;
+    -moz-animation-fill-mode: both;
+    -ms-animation-duration: 1s;
+    -ms-animation-delay: .2s;
+    -ms-animation-timing-function: ease;
+    -ms-animation-fill-mode: both;
+    -o-animation-duration: 1s;
+    -o-animation-delay: .2s;
+    -o-animation-timing-function: ease;
+    -o-animation-fill-mode: both;
+    animation-duration: 1s;
+    animation-delay: .2s;
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+}
+
+.figure-youtube {
+    margin: 0;
+}
+
+.owl-stage {
+    overflow: hidden;
+}
+
+.owl-dot :active {
+    text-decoration: none;
+}
+
+.owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-dots .owl-dot:hover span {
+    background: #970707;
+    text-decoration: none;
+
+}
+
+
+/* -----------------------------------
+    PHOTOS - MOBILE DISPLAY
+-------------------------------------- 
+
+.photos-main {
+    background-color: #fafafa;
+    background-repeat: no-repeat;
+    padding: 0;
+    margin: 0;
+}
+
+/* code model by https://codepen.io/sdthornton/pen/wBZdXq 
+.gallery-thumb {
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    -webkit-transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+    -o-transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+    border-radius: 5px;
+}
+
+.gallery,
+.gallery-left,
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.gallery-left {
+    padding-right: 7px;
+    padding-bottom: 3px;
+}
+
+.gallery {
+    padding-left: 7px;
+    padding-bottom: 3px;
+}
+
+/* -----------------------------------
+    FOLLOW - MOBILE DISPLAY
+-------------------------------------- 
+
+.follow-main {
+    height: 80vh;
+    background-image: url(../images/bg-follow.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-bottom: 4vh;
+    overflow: hidden;
+}
+
+.subscribe-box {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding: 5vh 0 3vh 0;
+
+}
+
+.form-group {
+    margin-bottom: 5px;
+}
+
+.form-container {
+    background-color: rgba(80, 80, 80, 0.6);
+    color: #fafafa;
+    border-radius: 20px;
+}
+
+.news {
+    margin: 5px 8px 5px 8px;
+}
+
+.follow-social-media {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding: 4vh 0 2vh 0 ;
+}
+
+.follow-social-media h5 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: #fafafa;
+    padding: 0;
+}
+
+.button-follow {
+    margin: 0 8px 0 8px;
+}
+
+.media-links-follow {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.social-links-follow {
+    padding: 0;
+    margin: 0;
+}
+
+.social-links-follow li a i {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    font-size: 25px;
+    height: 50px;
+    width: 50px;
+    border-radius: 20px;
+    color: #fafafa;
+    background: #443b3b;
+    transition: all 0.35s ease-in-out;
+    -moz-transition: all 0.35s ease-in-out;
+    -webkit-transition: all 0.35s ease-in-out;
+    -o-transition: all 0.35s ease-in-out;
+}
+
+.social-links-follow li a i:hover {
+    background: #700000;
+
+}
+
+/* -----------------------------------
+    FOOTER - MOBILE DISPLAY
+-------------------------------------- 
+
+.footer-main {
+    height: 23vh;
+    background-color: #000;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: 0;
+    padding: 10px 0 10px 0;
+}
+
+.steven-logo {
+    height: 70px;
+    width: 55px;
+    background-image: url("../images/steventylerlogo.png");
+    background-repeat: no-repeat;
+    margin: 0 auto 5px auto;
+}
+
+.copyright {
+    color: #fafafa;
+    margin: 0;
+    padding: 0;
+    font-size: 0.7rem;
+    overflow: hidden;
+}
+
+
+
+/* -----------------------------------
+    MEDIA QUERY
+-------------------------------------- 
+
+@media (min-width: 568px) {
+    /* I have changed this media query to 568px to fit mobile displays with 568px in landscape mode (Iphone 5/SE)  
+
+.sectors-title,
+.sectors-title-white,
+.sectors-title-follow {
+    margin: 30px 0 0 65px;
+}
+
+.sectors-title,
+.sectors-title-white,
+.sectors-title-follow,
+h1 {
+
+    font-size: 1.8rem;
+    text-align: start;
+}
+
+.music-main,
+.videos-main,
+.photos-main,
+.follow-main {
+    padding-top: 2vh;
+} 
+
+    /* ----- HEADER MD DISPLAY SIZE-------- 
+    .main-header {
+        background-image: url(../images/st-main-large.jpg);
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-size: cover;
+        overflow-y: auto;
+    }
+
+    .header-name {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        position: absolute;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        height: 80%;
+        margin-left: 2.5vw;
+    }
+
+    .main-header .container {
+        padding-top: 13px;
+        margin: 10vh 0 0 2.5vw;
+        padding-top: 3vh;
+    }
+
+    .header-name h1 {
+        color: rgba(53, 53, 53);
+        background-color: unset;
+        text-shadow: 1px 1px 3px #351f1f;
+        font-size: 2rem;
+    }
+
+    /* ----- MUSIC MD DISPLAY SIZE-------- 
+    .music-main {
+        background-image: url(../images/bg-music-xlg.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .music-players-column {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        align-items: flex-start;
+        background-color: transparent;
+    }
+
+    .music-players {
+        margin-left: 13vh;
+        padding: 4vh 0 6vh 0;
+    }
+
+    /* ----- FOLLOW MD DISPLAY SIZE-------- 
+    .follow-main {
+        height: 100%;
+        background-image: url(../images/bg-follow-lg.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .subscribe-box {
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+        padding-right: 35px;
+
+    }
+
+    .form-container h5 {
+        font-size: 1rem;
+    }
+
+    .sectors-title-follow h1 {
+        color: #eeeaea;
+    }
+
+    .social-links-follow li a i {
+        font-size: 24px;
+        height: 40px;
+        width: 40px;
+    }
+
+    .media-links-follow {
+        padding-right: 7vw;
+    }
+
+    .follow-social-media {
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+        padding-right: 4vw;
+    }
+
+    .follow-social-media h5 {
+        font-size: 0.8rem;
+        color: #000;
+    }
+
+    /* ----- FOOTER MD DISPLAY SIZE-------- 
+    .copyright {
+        font-size: 0.8rem;
+    }
+
+    .footer-main {
+        height: 40vh;
+    }
+}
+
+@media (max-width: 567px) {
+
+    /* ----- RIGHT TOP SOCIAL MEDIA ICONS NO DISPLAY IN SMALL DISPLAYS-------- 
+    .right-top-header {
+        display: none;
+    }
+}
+
+
+@media(min-width: 768px) {
+
+    /* Header 
+    .header-name h1 {
+        font-size: 2.6rem;
+    }
+
+    .navbar {
+        padding: 0 10px;
+        margin-top: 15px;
+        margin-left: 15px;
+        position: fixed;
+
+    }
+
+    /* Music 
+
+    .music-players-column {
+        margin-bottom: 3vh;
+    }
+
+    .music-players {
+        margin-left: 10vh;
+    }
+
+    /* Photos 
+
+    .photos-main {
+        padding-bottom: 5vh;
+    }
+
+    .gallery-left,
+    .gallery {
+        padding: 0 15px 3px 15px;
+    }
+
+    /* Follow 
+
+    .follow-main {
+        height: 85vh;
+    }
+
+    .subscribe-box {
+        padding-top: 3rem;
+    }
+
+    .follow-social-media h5 {
+        font-size: 1rem;
+    }
+
+    .social-links-follow li a i {
+        font-size: 30px;
+        height: 52px;
+        width: 52px;
+    }
+
+    /* Footer 
+    .footer-main {
+        height: 15vh;
+    }
+
+}
+
+@media(width: 812px) {   /* Iphone X in landscape mode 
+    .follow-main {
+        height: 100%;
+}
+}
+
+@media (min-width: 1328px) {
+
+    .music-main,
+    .videos-main,
+    .photos-main,
+    .follow-main {
+        padding-top: 3vh;
+    }
+
+    /* Header 
+    .main-header {
+        height: 100vh;
+        width: 100vw;
+        background-image: url(../images/st-main-xlarge.jpg);
+        background-size: cover;
+    }
+
+    .header-name .container {
+        margin: 10vh 0 0 3.5vw;
+        padding-top: 10vh;
+    }
+
+    .header-name h1 {
+        text-align: left;
+        font-size: 4.5rem;
+        margin-bottom: 0;
+    }
+
+    /* Music 
+  
+    .music-players {
+        margin-left: 20vh;
+        padding: 4vh 0 6vh 0;
+    }
+
+    /* Video 
+
+    .embed-video-player {
+        padding-top: 2.5vh;
+    }
+
+    /* Follow 
+    .follow-main {
+        height: 90vh;
+    }
+
+    .subscribe-box {
+        padding-top: 10rem;
+    }
+
+    .media-links-follow {
+        padding-right: 3.5vw;
+    }
+
+    .form-container h5 {
+        font-size: 1.4rem;
+    }
+
+    .follow-social-media {
+        padding-right: 2vw;
+    }
+
+    .follow-social-media h5 {
+        font-size: 1.4rem;
+    }
+
+    .social-links-follow li a i {
+        font-size: 50px;
+        height: 80px;
+        width: 80px;
+    }
+
+    /* Footer 
+    .footer-main {
+        height: 25vh;
+    }
+
+    .steven-logo {
+        height: 100px;
+        width: 79px;
+        background-image: url("../images/steventylerlogo-lg.png");
+        margin-top: 5px;
+    }
+
+    .copyright {
+        font-size: 1.1rem;
+    }
+}
+*/
