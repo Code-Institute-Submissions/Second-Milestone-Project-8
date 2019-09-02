@@ -11,7 +11,7 @@ body {
     font-family: "Roboto", sans-serif;
     font-size: 1em;
     font-weight: 400;
-    background-image: url(/assets/images/background.jpg);
+    background-image: url(assets/images/background.jpg);
     background-size: cover;
 }
 
