@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Test Your Brain</title>
+    <title>World Landmarks Memory Game</title>
     <!-- Styles -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         type="text/css" />
@@ -17,61 +17,65 @@
 
 <body>
     <header id="memorize-counter" class="memorize-counter">
-
+        <div class="container-fluid memorize-counter-box">
+            <div class="memorize-counter-content">10</div>
+        </div>
     </header>
-    <section class="memorize-board">
-            <row class="col-12 col-lg-10 align-self-center justify-content-center game-board">
-                    <div class="cards">
-                        <img class="front-face" src="/assets/images/germany.jpg" alt="Germany">
-                        <img class="back-face" src="/assets/images/face-down.jpg" alt="face-down">
-                    </div>
-                    <div class="cards">
-                        <img class="front-face" src="/assets/images/germany.jpg" alt="Germany">
-                        <img class="back-face" src="/assets/images/face-down.jpg" alt="face-down">
-                    </div>
-                    <div class="cards">
-                        <img class="front-face" src="/assets/images/uk.jpg" alt="United Kingdom">
-                        <img class="back-face" src="/assets/images/face-down.jpg" alt="face-down">
-                    </div>
-                    <div class="cards">
-                        <img class="front-face" src="/assets/images/uk.jpg" alt="United Kingdom">
-                        <img class="back-face" src="/assets/images/face-down.jpg" alt="face-down">
-                    </div>
-                    <div class="cards">
-                        <img class="front-face" src="/assets/images/italy.jpg" alt="Italy">
-                        <img class="back-face" src="/assets/images/face-down.jpg" alt="face-down">
-                    </div>
-                    <div class="cards">
-                        <img class="front-face" src="/assets/images/italy.jpg" alt="Italy">
-                        <img class="back-face" src="/assets/images/face-down.jpg" alt="face-down">
-                    </div>
-                    <div class="cards">
-                        <img class="front-face" src="/assets/images/usa.jpg" alt="Usa">
-                        <img class="back-face" src="/assets/images/face-down.jpg" alt="face-down">
-                    </div>
-                    <div class="cards">
-                        <img class="front-face" src="/assets/images/usa.jpg" alt="Usa">
-                        <img class="back-face" src="/assets/images/face-down.jpg" alt="face-down">
-                    </div>
-                    <div class="cards">
-                        <img class="front-face" src="/assets/images/france.jpg" alt="France">
-                        <img class="back-face" src="/assets/images/face-down.jpg" alt="face-down">
-                    </div>
-                    <div class="cards">
-                        <img class="front-face" src="/assets/images/france.jpg" alt="France">
-                        <img class="back-face" src="/assets/images/face-down.jpg" alt="face-down">
-                    </div>
-                    <div class="cards">
-                        <img class="front-face" src="/assets/images/brazil.jpg" alt="Brazil">
-                        <img class="back-face" src="/assets/images/face-down.jpg" alt="face-down">
-                    </div>
-                    <div class="cards">
-                        <img class="front-face" src="/assets/images/brazil.jpg" alt="Brazil">
-                        <img class="back-face" src="/assets/images/face-down.jpg" alt="face-down">
-                    </div>
-                </row>
+    <section class="container-fluid col-lg-9 col-xl-8  mx-lg-auto mx-xl-auto memorize-board">
+        <div class="row game-board">
+            <div class="col-3 col-xl-2 cards">
+                <img class="front-face" src="assets/images/germany.jpg" alt="Germany">
+                <img class="back-face" src="assets/images/face-down.jpg" alt="face-down">
+            </div>
+            <div class="col-3 col-xl-2 cards">
+                <img class="front-face" src="assets/images/germany.jpg" alt="Germany">
+                <img class="back-face" src="assets/images/face-down.jpg" alt="face-down">
+            </div>
+            <div class="col-3 col-xl-2 cards">
+                <img class="front-face" src="assets/images/uk.jpg" alt="United Kingdom">
+                <img class="back-face" src="assets/images/face-down.jpg" alt="face-down">
+            </div>
+            <div class="col-3 col-xl-2 cards">
+                <img class="front-face" src="assets/images/uk.jpg" alt="United Kingdom">
+                <img class="back-face" src="assets/images/face-down.jpg" alt="face-down">
+            </div>
+            <div class="col-3 col-xl-2 cards">
+                <img class="front-face" src="assets/images/italy.jpg" alt="Italy">
+                <img class="back-face" src="assets/images/face-down.jpg" alt="face-down">
+            </div>
+            <div class="col-3 col-xl-2 cards">
+                <img class="front-face" src="assets/images/italy.jpg" alt="Italy">
+                <img class="back-face" src="assets/images/face-down.jpg" alt="face-down">
+            </div>
+            <div class="col-3 col-xl-2 cards">
+                <img class="front-face" src="assets/images/usa.jpg" alt="Usa">
+                <img class="back-face" src="assets/images/face-down.jpg" alt="face-down">
+            </div>
+            <div class="col-3 col-xl-2 cards">
+                <img class="front-face" src="assets/images/usa.jpg" alt="Usa">
+                <img class="back-face" src="assets/images/face-down.jpg" alt="face-down">
+            </div>
+            <div class="col-3 col-xl-2 cards">
+                <img class="front-face" src="assets/images/france.jpg" alt="France">
+                <img class="back-face" src="assets/images/face-down.jpg" alt="face-down">
+            </div>
+            <div class="col-3 col-xl-2 cards">
+                <img class="front-face" src="assets/images/france.jpg" alt="France">
+                <img class="back-face" src="assets/images/face-down.jpg" alt="face-down">
+            </div>
+            <div class="col-3 col-xl-2 cards">
+                <img class="front-face" src="assets/images/brazil.jpg" alt="Brazil">
+                <img class="back-face" src="assets/images/face-down.jpg" alt="face-down">
+            </div>
+            <div class="col-3 col-xl-2 cards">
+                <img class="front-face" src="assets/images/brazil.jpg" alt="Brazil">
+                <img class="back-face" src="assets/images/face-down.jpg" alt="face-down">
+            </div>
     </section>
-    <section class="memorize">MEMORIZE</section>
+    <footer class="memorize-footer">
+        <div class="memorize-text">MEMORIZE</div>
+        </div>
+    </footer>
 </body>
 
 </html>

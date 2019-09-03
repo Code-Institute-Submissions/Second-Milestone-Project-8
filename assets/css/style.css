@@ -13,37 +13,53 @@ body {
     font-weight: 400;
     background-image: url(../images/background.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
 }
 
-.body-wraper {
+/* GAME BOARD*/
+
+.memorize-board {
     display: flex;
+    width: 100%;
+    height: auto;
     flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+
 }
 
 .game-board {
-    height: 100vh;
     display: flex;
+    flex-direction: row;
     align-content: center;
     justify-content: center;
-    flex-wrap: wrap;
+    margin: 0 2vh 0 2vh;
 }
 
 .cards {
-    min-width: 103px;
-    height: 125px;
-    position: relative;
+    display: flex;
+    width: 74px;
+    height: 90px;
     transition: transform .5s;
-    margin: 3px;
+    align-content: center;
+    justify-content: center;
+    margin: 4px 0;
+    padding: 0;
 }
 
 .front-face,
 .back-face {
-    width: 100%;
+    width: auto;
     height: 100%;
+    padding: 0;
     position: absolute;
+    border: 1px solid rgba(0, 0, 0, 0.5);
     border-radius: 5px;
     backface-visibility: hidden;
 }
+
 
 /* INDEX */
 
@@ -61,7 +77,8 @@ body {
     height: 100px;
     padding: 10px;
     background-color: rgba(96, 93, 49, 0.248);
-    border: 2px solid rgba(0, 0, 0, 0.5);    margin: 20px auto;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    margin: 20px auto;
     border-radius: 10px;
 }
 
@@ -98,6 +115,7 @@ body {
     font-weight: 500;
     font-size: 0.9rem;
 }
+
 /* Bootstrap 4 BTN-DARK color with reduced opacity*/
 .btn-dark {
     background-color: #343a40bd;
@@ -124,15 +142,15 @@ body {
     height: auto;
     padding: 10px;
     border: 2px solid rgba(0, 0, 0, 0.5);
-    border-radius: 10px; 
+    border-radius: 10px;
 }
 
 /* Bootstrap 4 BTN-DARK color with reduced opacity*/
-.btn-outline-dark:hover{
+.btn-outline-dark:hover {
     background-color: #343a40bd;
 }
 
-.play-button{
+.play-button {
     margin: 0 10px 0 0;
     font-size: 50px;
 }
@@ -145,62 +163,145 @@ body {
     font-weight: 400;
 }
 
+/* MEMORIZE */
+
+.memorize-counter {
+    display: flex;
+    height: 20vh;
+    justify-items: center;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.memorize-counter-box {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 80px;
+    height: 80px;
+    padding: 5px;
+    background-color: rgba(96, 93, 49, 0.118);
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+.memorize-counter-content {
+    display: flex;
+    width: 60px;
+    height: 60px;
+    background-color: #343a4025;
+    font-size: 2rem;
+    justify-content: center;
+    text-align: center;
+    color: #fafafa;
+    text-shadow: 1px 1px 2px #000;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    margin: 3px 3px;
+    padding: 0;
+}
+
+.memorize-footer {
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.memorize-text {
+    background-color: #343a4025;
+    font-size: 2rem;
+    justify-content: center;
+    text-align: center;
+    color: #fafafa;
+    text-shadow: 1px 1px 2px #000;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    padding: 5px;
+}
+
 
 /* -----------------------------------
     MEDIA QUERY
 -------------------------------------- */
 /*Mobile screen less than 360px Iphone SE*/
 @media (max-width: 359px) {
+
+    .game-board {
+        margin: 0;
+    }
+
     .cards {
-        min-width: 82px;
-        height: 100px;
+        width: 74px;
+        height: 90px;
         position: relative;
         transition: transform .5s;
         margin: 3px;
+    }
+
+    .memorize-counter {
+        height: 15vh;
+        margin: 5px 0;
+    }
+
+    .memorize-text {
+
     }
 }
 
 @media (min-width: 575px) {
 
-.cards {
-    min-width: 127px;
-    height: 155px;
-    position: relative;
-    transition: transform .5s;
-    margin: 3px;
-}
+    .cards {
+        width: 127px;
+        height: 155px;
+        position: relative;
+        transition: transform .5s;
+
+    }
 
 }
 
-@media (min-width: 694px){
+@media (min-width: 694px) {
     .cards {
         width: 156px;
         height: 190px;
         position: relative;
         transition: transform .5s;
-        
+
     }
 
 }
 
+@media (min-width: 1200px) and (max-width: 1327px) {
+    .cards {
+        margin: 1vh 2vw;
+    }
+}
+
 @media (min-width: 1328px) {
 
-    .game-board {
-        width: 70vw;
-        height: 70vh;
-        display: flex;
-        flex-direction: row;
-        align-content: center;
-        justify-content: center;
-        flex-wrap: wrap;
+    .memorize-counter {
+        height: 15vh;
     }
 
     .cards {
-        width: 230px;
-        height: 280px;
+        width: 181px;
+        height: 220px;
         position: relative;
         transition: transform .5s;
-        margin: 3px;
+        margin: 1vh 2vw;
+    }
+
+    .memorize-text {
+        height: 5vh;
+    }
+}
+
+@media (min-width: 1713px) {
+    body {
+        background-size: cover;
     }
 }
 
