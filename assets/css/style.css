@@ -32,8 +32,8 @@ body {
 
 .cards {
     display: flex;
-    width: 74px;
-    height: 90px;
+    width: 90px;
+    height: 110px;
     transition: transform .5s;
     align-content: center;
     justify-content: center;
@@ -168,15 +168,15 @@ body {
 
 .memorize-counter-box {
     display: flex;
-    justify-content: center;
-    align-content: center;
+    justify-items: center;
+    align-items: center;
     width: 80px;
     height: 80px;
     padding: 5px;
     background-color: rgba(96, 93, 49, 0.118);
     border: 2px solid rgba(0, 0, 0, 0.5);
-    margin: 20px auto;
     border-radius: 10px;
+    margin: 10px auto;
 }
 
 .memorize-counter-content {
@@ -199,12 +199,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 5px;
 }
 
 .memorize-text {
     background-color: #343a4025;
-    font-size: 2rem;
+    font-size: 1.2rem;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -212,7 +212,7 @@ body {
     text-shadow: 1px 1px 2px #000;
     border-radius: 5px;
     border: 1px solid rgba(0, 0, 0, 0.5);
-    padding: 5px;
+    padding: 2px;
 }
 
 
@@ -223,6 +223,36 @@ body {
 @media (max-width: 359px){
     .game-board {
         padding: 0;
+        margin: 0;
+    }
+
+    .memorize-counter-box {
+        width: 60px;
+        height: 60px;
+        padding: 5px;
+        background-color: rgba(96, 93, 49, 0.118);
+        border: 2px solid rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+    }
+
+    .memorize-counter-content {
+        display: flex;
+        width: 40px;
+        height: 40px;
+        background-color: #343a4025;
+        font-size: 1.5rem;
+        color: #fafafa;
+        text-shadow: 1px 1px 2px #000;
+        border-radius: 5px;
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        margin: 3px 3px;
+        padding: 0;
+    }
+
+
+    .cards {
+        max-width: 90px;
+        height: 90px;
     }
 
     .memorize-text {
@@ -244,18 +274,23 @@ body {
 
 @media (min-width: 694px) {
     .cards {
-        width: 156px;
-        height: 190px;
+        width: 152px;
+        height: 185px;
         position: relative;
         transition: transform .5s;
-
     }
-
+    .game-board {
+        padding: 0;
+    }
 }
 
 @media (min-width: 960px) {
-    .game-board {
-        padding: 0;
+    .cards {
+        width: 172px;
+        height: 210px;
+        position: relative;
+        transition: transform .5s;
+        margin: 4px 30px;
     }
 }
 
