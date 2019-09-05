@@ -67,7 +67,7 @@ body {
 }
 
 .banner-game {
-    background-image: url(/assets/images/banner-game.png);
+    background-image: url(../images/banner-game.png);
     background-repeat: no-repeat;
     max-width: 800px;
     min-width: 300px;
