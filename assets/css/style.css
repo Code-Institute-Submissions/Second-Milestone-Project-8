@@ -60,15 +60,20 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    height: 15vh;
+    margin: auto auto;
+    height: auto;
     align-content: center;
-    padding-top: 8vh;
-    font-weight: 700;
+    padding-top: 5px;
 }
 
 .banner-game {
-    background-image: url(assets/images/banner-game.png);
+    background-image: url(/assets/images/banner-game.png);
     background-repeat: no-repeat;
+    max-width: 800px;
+    min-width: 300px;
+    max-height: 358px;
+    min-height: 134px;
+    background-size: contain;
 }
 
 .level-selection-box {
@@ -76,7 +81,7 @@ body {
     justify-content: center;
     max-width: 1200px;
     min-width: 270px;
-    margin: 3vh 4vw 3vh 4vw;
+    margin: 0.5vh 4vw 3vh 4vw;
     height: 100px;
     padding: 10px;
     background-color: rgba(96, 93, 49, 0.248);
