@@ -6,6 +6,7 @@
 
 body {
     font-family: "Roboto", sans-serif;
+    height: 100vh;
     font-size: 1em;
     font-weight: 400;
     background-image: url(../images/background.jpg);
@@ -59,19 +60,27 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    height: auto;
+    height: 15vh;
     align-content: center;
     padding-top: 8vh;
     font-weight: 700;
 }
 
+.banner-game {
+    background-image: url(assets/images/banner-game.png);
+    background-repeat: no-repeat;
+}
+
 .level-selection-box {
-    width: 280px;
+    align-content: center;
+    justify-content: center;
+    max-width: 1200px;
+    min-width: 270px;
+    margin: 3vh 4vw 3vh 4vw;
     height: 100px;
     padding: 10px;
     background-color: rgba(96, 93, 49, 0.248);
     border: 2px solid rgba(0, 0, 0, 0.5);
-    margin: 20px auto;
     border-radius: 10px;
 }
 
@@ -91,12 +100,13 @@ body {
 }
 
 .game-instructions-box {
-    width: 280px;
+    max-width: 1200px;
+    min-width: 270px;
+    margin: 0 4vw 3vh 4vw;
     height: auto;
     padding: 10px;
     background-color: rgba(96, 93, 49, 0.248);
     border: 2px solid rgba(0, 0, 0, 0.5);
-    margin: 20px auto;
     border-radius: 10px;
 }
 
@@ -131,7 +141,9 @@ body {
     display: flex;
     justify-content: center;
     align-content: center;
-    width: 280px;
+    max-width: 1200px;
+    min-width: 270px;
+    margin: 10px 4vw;
     height: auto;
     padding: 10px;
     border: 2px solid rgba(0, 0, 0, 0.5);
@@ -220,7 +232,7 @@ body {
     MEDIA QUERY
 -------------------------------------- */
 
-@media (max-width: 359px){
+@media (max-width: 359px) {
     .game-board {
         padding: 0;
         margin: 0;
@@ -261,7 +273,6 @@ body {
 }
 
 @media (min-width: 575px) {
-
     .cards {
         width: 127px;
         height: 155px;
@@ -273,12 +284,20 @@ body {
 }
 
 @media (min-width: 694px) {
+    
+    .level-selection-box,
+    .game-instructions-box,
+    .start-game-box {
+        margin: 2vh 7vh;
+    }
+    
     .cards {
         width: 152px;
         height: 185px;
         position: relative;
         transition: transform .5s;
     }
+
     .game-board {
         padding: 0;
     }
@@ -294,17 +313,27 @@ body {
     }
 }
 
-@media (min-width: 1200px) and (max-width: 1327px) {
+@media (min-width: 1200px) {
+
     .cards {
         margin: 1vh 2vw;
     }
 }
 
 @media (min-width: 1328px) {
+    .level-selection-box,
+    .game-instructions-box,
+    .start-game-box {
+        margin: 4vh auto;
+    }
+
+     {
+        margin: 4vh auto;
+    }
 
     .cards {
-        width: 181px;
-        height: 220px;
+        width: 172px;
+        height: 210px;
         padding: 0;
         margin: 1vh 2vw;
     }
@@ -313,6 +342,3 @@ body {
         height: 5vh;
     }
 }
-
-
-
