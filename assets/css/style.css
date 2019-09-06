@@ -12,7 +12,12 @@ body {
     background-image: url(../images/background.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
 }
+
+
+/* GAME BOARD*/
 
 .content-wrap {
     display: flex;
@@ -22,8 +27,6 @@ body {
     justify-content: center;
     align-content: center;
 }
-
-/* GAME BOARD*/
 
 .game-board {
     align-content: center;
@@ -60,20 +63,26 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin: auto auto;
-    height: auto;
     align-content: center;
-    padding-top: 5px;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
-.banner-game {
-    background-image: url(../images/banner-game.png);
-    background-repeat: no-repeat;
-    max-width: 800px;
-    min-width: 300px;
-    max-height: 358px;
-    min-height: 134px;
-    background-size: contain;
+.banner-game-box {
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 575px;
+    height: auto;
+    margin: 2vh 4vw 2vh 4vw;
+    padding: 0;
+}
+
+.banner-img {
+    width: 100%;
+    margin: 0 auto;
 }
 
 .level-selection-box {
@@ -236,11 +245,27 @@ body {
 /* -----------------------------------
     MEDIA QUERY
 -------------------------------------- */
-
+/* Mobile screen under 359px */
 @media (max-width: 359px) {
+    .level-selection-box {
+        margin: 0.5vh 4vw 2vh 4vw;
+    }
+
+    .game-instructions-box {
+        margin: 0 4vw 2vh 4vw;
+    }
+
     .game-board {
         padding: 0;
         margin: 0;
+    }
+
+    .game-instructions-text {
+        font-size: 0.7rem;
+    }
+
+    .start-game-box {
+        margin: 10px 4vw 0 4vw;
     }
 
     .memorize-counter-box {
@@ -275,7 +300,11 @@ body {
     .memorize-text {
         font-size: 1.2rem;
     }
+
 }
+
+/*------------------------------------------*/
+
 
 @media (min-width: 575px) {
     .cards {
@@ -289,13 +318,13 @@ body {
 }
 
 @media (min-width: 694px) {
-    
+
     .level-selection-box,
     .game-instructions-box,
     .start-game-box {
         margin: 2vh 7vh;
     }
-    
+
     .cards {
         width: 152px;
         height: 185px;
@@ -326,13 +355,14 @@ body {
 }
 
 @media (min-width: 1328px) {
+
     .level-selection-box,
     .game-instructions-box,
     .start-game-box {
         margin: 4vh auto;
     }
 
-     {
+        {
         margin: 4vh auto;
     }
 
