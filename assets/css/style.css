@@ -6,14 +6,18 @@
 
 body {
     font-family: "Roboto", sans-serif;
-    height: 100vh;
     font-size: 1em;
     font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
     background-image: url(../images/background.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    margin: 0;
-    padding: 0;
 }
 
 
@@ -62,21 +66,14 @@ body {
 .index-header {
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: center;
-    align-content: center;
-    width: auto;
+    flex: 0 1 auto;
     margin: 0;
-    padding: 0;
-    overflow: hidden;
 }
 
 .banner-game-box {
-    align-content: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 575px;
-    height: auto;
-    margin: 2vh 4vw 2vh 4vw;
+    max-width: 750px;
     padding: 0;
 }
 
@@ -86,13 +83,11 @@ body {
 }
 
 .level-selection-box {
-    align-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    max-width: 1200px;
-    min-width: 270px;
-    margin: 0.5vh 4vw 3vh 4vw;
-    height: 100px;
-    padding: 10px;
+    flex: 0 1 auto;
     background-color: rgba(96, 93, 49, 0.248);
     border: 2px solid rgba(0, 0, 0, 0.5);
     border-radius: 10px;
@@ -110,14 +105,16 @@ body {
 .difficulty-level-button {
     justify-content: center;
     align-content: center;
-    margin: 0;
+    margin-bottom: 1.5vh;
 }
 
 .game-instructions-box {
-    max-width: 1200px;
-    min-width: 270px;
-    margin: 0 4vw 3vh 4vw;
-    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 0 1 auto;
+    margin: 1.5vh;
     padding: 10px;
     background-color: rgba(96, 93, 49, 0.248);
     border: 2px solid rgba(0, 0, 0, 0.5);
@@ -128,7 +125,7 @@ body {
     justify-content: center;
     color: #fafafa;
     text-shadow: 2px 2px 5px #000;
-    margin: 2px 0 5px 0;
+    margin: 0 0 5px 0;
     font-weight: 500;
     font-size: 0.9rem;
 }
@@ -141,8 +138,8 @@ body {
 .game-instructions-text {
     display: flex;
     background-color: #343a40bd;
-    font-size: 0.9rem;
-    text-align: center;
+    font-size: 0.7rem;
+    text-align: justify;
     color: #fafafa;
     text-shadow: 1px 1px 2px #000;
     border-radius: 5px;
@@ -153,13 +150,12 @@ body {
 
 .start-game-box {
     display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
-    align-content: center;
-    max-width: 1200px;
-    min-width: 270px;
-    margin: 10px 4vw;
-    height: auto;
-    padding: 10px;
+    flex: 0 1 auto;
+    margin: 0 auto;
+    margin-bottom: 2vh;
     border: 2px solid rgba(0, 0, 0, 0.5);
     border-radius: 10px;
 }
@@ -261,20 +257,13 @@ body {
     }
 
     .game-instructions-text {
-        font-size: 0.7rem;
-    }
-
-    .start-game-box {
-        margin: 10px 4vw 0 4vw;
+        font-size: 0.6rem;
     }
 
     .memorize-counter-box {
         width: 60px;
         height: 60px;
         padding: 5px;
-        background-color: rgba(96, 93, 49, 0.118);
-        border: 2px solid rgba(0, 0, 0, 0.5);
-        border-radius: 10px;
     }
 
     .memorize-counter-content {
@@ -301,6 +290,12 @@ body {
         font-size: 1.2rem;
     }
 
+    .start-game-box {
+        padding: 0.2rem;
+    }
+    .start-game-text {
+        font-size: 1.5rem;
+    }
 }
 
 /*------------------------------------------*/
@@ -318,12 +313,6 @@ body {
 }
 
 @media (min-width: 694px) {
-
-    .level-selection-box,
-    .game-instructions-box,
-    .start-game-box {
-        margin: 2vh 7vh;
-    }
 
     .cards {
         width: 152px;
@@ -355,16 +344,6 @@ body {
 }
 
 @media (min-width: 1328px) {
-
-    .level-selection-box,
-    .game-instructions-box,
-    .start-game-box {
-        margin: 4vh auto;
-    }
-
-        {
-        margin: 4vh auto;
-    }
 
     .cards {
         width: 172px;

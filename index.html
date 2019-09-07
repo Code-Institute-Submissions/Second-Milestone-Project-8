@@ -16,28 +16,30 @@
 </head>
 
 <body>
-    <header class="container-fluid index-header">
+    <header class="col-11 col-md-8 mx-auto index-header">
         <div class="row banner-game-box">
             <img class="banner-img" src="assets/images/banner-game.png">
         </div>
     </header>
-    <section class="level-selection-box">
+    <section class="col-10 col-md-7 col-xl-4 mx-auto level-selection-box">
         <div class="row difficulty-level-text">DIFFICULTY LEVEL</div>
         <div class="row difficulty-level-button">
             <div class="btn-group-sm btn-group-justified">
-                <button type="button" class="btn btn-dark">EASY</button>
+                <button type="button" class="btn btn-dark active">EASY</button>
                 <button type="button" class="btn btn-dark">NORMAL</button>
                 <button type="button" class="btn btn-dark">HARD</button>
             </div>
         </div>
     </section>
-    <section class="game-instructions-box">
-        <div class="row game-instructions-title">GAME INSTRUCTIONS</div>
-        <div class="row game-instructions-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Necessitatibus, totam odio aliquid reiciendis iste architecto rerum quidem enim quia eum quos eveniet
-            voluptatibus, libero quisquam ea</div>
+    <section class="col-10 col-md-7 col-xl-4 mx-auto game-instructions-box">
+        <div id="game-instructions-title" class="row game-instructions-title">EASY MODE</div>
+        <div id="game-instructions-text" class="row game-instructions-text">
+        1. In easy mode you will have 10 seconds to memorize the deck cards. <br>
+        2. After 10 seconds all cards will be dealt face down and the game will begin.<br>
+        3. You will have 30 seconds to find all pairs. Each attempt, right or wrong, will be counted and will set your final score.<br>
+        4. The game ends after the player finds all pairs or the time is up.</div>
     </section>
-    <a href="memorize.html" class="btn btn-outline-dark start-game-box">
+    <a href="memorize.html" class="col-10 col-md-6 col-lg-4 col-xl-3 mx-auto btn btn-outline-dark start-game-box">
         
         <div class="row play-button">
             <i class="far fa-play-circle" aria-hidden="true"></i>
