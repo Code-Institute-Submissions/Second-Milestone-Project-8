@@ -9,42 +9,67 @@ let firstCard, secondCard;
 
 // Level Selection countdown Time in seconds to local store //
 $('#easy-mode-button').click(function () {
-    localStorage.setItem("levelSelectionSeconds", 8);
+    localStorage.setItem("levelSelectionSeconds", 9); // 9 - 1 counter
 });
 $('#normal-mode-button').click(function () {
-    localStorage.setItem("levelSelectionSeconds", 5);
+    localStorage.setItem("levelSelectionSeconds", 6); // 6 - 1 counter
 });
 $('#hard-mode-button').click(function () {
-    localStorage.setItem("levelSelectionSeconds", 3);
+    localStorage.setItem("levelSelectionSeconds", 4); // 4 - 1 counter
 });
-
-// Memorize Countdown ( 8, 5 or 3 seconds, after difficulty selection)//
 
 //hide top-game-box div while memorize is show
+$('#top-game-box').hide();
 
-$('#start-button').click(function () {
-    $('#top-game-box').hide();
-});
+//MEMORIZE CARDS - ALL CARDS OPENED
+function memorizeCards() {
+    lockBoard = true;
+    $(cards).addClass('flip');
+    return;
+};
 
+function memorizeHideCards() {
+    lockBoard = true;
+    $(cards).removeClass('flip');
+    return;
+};
 
-$(document).ready(
+//MEMORIZE COUNTER = EASY - 8 Seconds / NORMAL - 5 SECONDS / HARD - 3 SECONDS COUNTDOWN
 (function memorizeCounter() {
-    if (window.location.pathname == 'game.html') {
-        let i = localStorage.getItem("levelSelectionSeconds");
-        setInterval(function () {
-            i--;
-            if (i >= 0) {
-                console.log(i);
-            }
-            if (i === 0) {
-                clearInterval(i);
-            }
-        },1000);
-    }})());
+    let i = localStorage.getItem("levelSelectionSeconds");
+    setInterval(function () {
+        i--;
+        if (i >= 0) {
+            $('#memorize-countdown').html(i);
+            //memorizeCards();
+        }
+        if (i === 0) {
+            clearInterval(i);
+            // funcao para desvirar todas as cartas
+            $('#top-memorize-box').hide();
+            $('#top-game-box').show();
+            $('#memorize-footer').hide();
+            //memorizeHideCards();
+        }
+    }, 1000);
+    
+})();
 
+//GAME COUNTER -  30 SECONDS COUNTDOWN
+(function gameCounter() {
+    let i = 36;
+    setInterval(function () {
+        i--;
+        if (i >= 0) {
+            $('#game-countdown').html(i);
 
-// Gameboard
-//
+        }
+        if (i === 0) {
+            clearInterval(i);
+            // funcao para delay de 5 segundos antes do resultado
+        }
+    }, 1000);
+})();
 
 
 // Flip Card //
@@ -53,7 +78,7 @@ function flipCard() {
     if (lockBoard) return;
     if (this === firstCard) return;
 
-    this.classList.add('flip');
+    $(this).addClass('flip');
 
     if (!flippedCard) {
         // first click
@@ -73,8 +98,7 @@ function flipCard() {
     checkForMatch();
 }
 
-// Attempts - After 2 cards flipped, attempts counter increases +1
-
+// Attempts - Update counter 
 function attempts() {
     $('#attempts-counter').html(attemptsCounter);
 }
