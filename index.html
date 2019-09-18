@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
     <!-- My own style sheet -->
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" data-name="brazil"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous" data-name="brazil">
+    </script>
 </head>
 
 <body>
@@ -25,27 +29,29 @@
         <div class="row difficulty-level-text">DIFFICULTY LEVEL</div>
         <div class="row difficulty-level-button">
             <div class="btn-group-sm btn-group-justified">
-                <button type="button" class="btn btn-dark active">EASY</button>
-                <button type="button" class="btn btn-dark">NORMAL</button>
-                <button type="button" class="btn btn-dark">HARD</button>
+                <button type="button" id="easy-mode-button" class="btn btn-dark">EASY</button>
+                <button type="button" id="normal-mode-button" class="btn btn-dark">NORMAL</button>
+                <button type="button" id="hard-mode-button" class="btn btn-dark">HARD</button>
             </div>
         </div>
     </section>
     <section class="col-10 col-md-7 col-xl-4 mx-auto game-instructions-box">
         <div id="game-instructions-title" class="row game-instructions-title">EASY MODE</div>
         <div id="game-instructions-text" class="row game-instructions-text">
-        1. In easy mode you will have 10 seconds to memorize the deck cards. <br>
-        2. After 10 seconds all cards will be dealt face down and the game will begin.<br>
-        3. You will have 30 seconds to find all pairs. Each attempt, right or wrong, will be counted and will set your final score.<br>
-        4. The game ends after the player matches all pairs or the time is up.</div>
+            1. In easy mode you will have 10 seconds to memorize the deck cards. <br>
+            2. After 10 seconds all cards will be dealt face down and the game will begin.<br>
+            3. You will have 30 seconds to find all pairs. Each attempt, right or wrong, will be counted and will set
+            your final score.<br>
+            4. The game ends after the player matches all pairs or the time is up.</div>
     </section>
-    <a href="memorize.html" class="col-10 col-md-6 col-lg-4 col-xl-3 mx-auto btn btn-outline-dark start-game-box">
-        
+    <a href="game.html" role="button" id="start-button" class="col-10 col-md-6 col-lg-4 col-xl-3 mx-auto btn btn-outline-dark start-game-box">
         <div class="row play-button">
             <i class="far fa-play-circle" aria-hidden="true"></i>
         </div>
         <div class="row start-game-text">PLAY GAME</div>
     </a>
+    <!-- Scripts-->
+    <script src="/assets/js/game.js"></script>
 </body>
 
 </html>

@@ -2,10 +2,11 @@
     padding: 0;
     margin: 0;
     -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-body, html {
+body,
+html {
     font-family: "Roboto", sans-serif;
     font-size: 1em;
     font-weight: 400;
@@ -14,14 +15,14 @@ body, html {
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     margin: 0;
     padding: 0;
-    
+
     min-height: 100vh;
     min-width: 100%;
     background-image: url(../images/background.jpg);
@@ -35,10 +36,10 @@ body, html {
 
 .game-board {
     -ms-flex-line-pack: center;
-        align-content: center;
+    align-content: center;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     padding: 0 4vw 0 4vw;
 }
 
@@ -48,22 +49,36 @@ body, html {
     display: flex;
     width: 90px;
     height: 110px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
     -webkit-transition: -webkit-transform .5s;
     transition: -webkit-transform .5s;
     -o-transition: transform .5s;
     transition: transform .5s;
     transition: transform .5s, -webkit-transform .5s;
     -ms-flex-line-pack: center;
-        align-content: center;
+    align-content: center;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     margin: 4px 0;
     padding: 0;
 }
 
-.front-face,
-.back-face {
+.cards:active {
+    transform: scale(0.97);
+    transition: transform .5s;
+}
+
+.cards.flip {
+    transform: rotateY(180deg);
+}
+
+.card-face-up,
+.card-face-down {
     width: auto;
     height: 100%;
     padding: 0;
@@ -71,9 +86,12 @@ body, html {
     border: 1px solid rgba(0, 0, 0, 0.5);
     border-radius: 5px;
     -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
+.card-face-up {
+    transform: rotateY(180deg);
+}
 
 /* INDEX */
 
@@ -83,17 +101,17 @@ body, html {
     display: flex;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     -webkit-box-flex: 0;
-        -ms-flex: 0 1 auto;
-            flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
     margin: 0;
 }
 
@@ -114,17 +132,17 @@ body, html {
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     -webkit-box-flex: 0;
-        -ms-flex: 0 1 auto;
-            flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
     background-color: rgba(96, 93, 49, 0.248);
     border: 2px solid rgba(0, 0, 0, 0.5);
     border-radius: 10px;
@@ -132,8 +150,8 @@ body, html {
 
 .difficulty-level-text {
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     color: #fafafa;
     text-shadow: 2px 2px 5px #000;
     margin: 2px 0 5px 0;
@@ -143,10 +161,10 @@ body, html {
 
 .difficulty-level-button {
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     -ms-flex-line-pack: center;
-        align-content: center;
+    align-content: center;
     margin-bottom: 1.5vh;
 }
 
@@ -156,17 +174,17 @@ body, html {
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     -webkit-box-flex: 0;
-        -ms-flex: 0 1 auto;
-            flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
     margin: 1.5vh;
     padding: 10px;
     background-color: rgba(96, 93, 49, 0.248);
@@ -176,8 +194,8 @@ body, html {
 
 .game-instructions-title {
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     color: #fafafa;
     text-shadow: 2px 2px 5px #000;
     margin: 0 0 5px 0;
@@ -211,17 +229,17 @@ body, html {
     display: flex;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     -webkit-box-flex: 0;
-        -ms-flex: 0 1 auto;
-            flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
     margin: 0 auto;
     margin-bottom: 2vh;
     border: 2px solid rgba(0, 0, 0, 0.5);
@@ -240,10 +258,10 @@ body, html {
 
 .start-game-text {
     -ms-flex-line-pack: center;
-        align-content: center;
+    align-content: center;
     -webkit-box-pack: left;
-        -ms-flex-pack: left;
-            justify-content: left;
+    -ms-flex-pack: left;
+    justify-content: left;
     margin: 0;
     font-size: 1.7rem;
     font-weight: 400;
@@ -251,26 +269,19 @@ body, html {
 
 /* MEMORIZE */
 
-.memorize-counter {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    height: 20vh;
-    justify-items: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    margin: 15px 0;
+#game-board,
+#memorize-footer {
+    margin: auto 0;
 }
 
-.memorize-counter-box {
+.attempts-box {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     justify-items: center;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     width: 80px;
     height: 80px;
     padding: 5px;
@@ -280,7 +291,7 @@ body, html {
     margin: 10px auto;
 }
 
-.memorize-counter-content {
+.attempts-counter {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -289,11 +300,50 @@ body, html {
     background-color: #343a4025;
     font-size: 2rem;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: #fafafa;
+    text-shadow: 1px 1px 2px #000;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    margin: 3px 3px;
+    padding: 0;
+}
+
+.counter-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    padding: 5px;
+    background-color: rgba(96, 93, 49, 0.118);
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    margin: 10px auto;
+}
+
+.time-countdown {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 60px;
+    height: 60px;
+    background-color: #343a4025;
+    font-size: 2rem;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
     color: #fafafa;
     text-shadow: 1px 1px 2px #000;
     border-radius: 5px;
@@ -307,12 +357,12 @@ body, html {
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    margin-top: 5px;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: auto 0;
 }
 
 .memorize-text {
@@ -322,10 +372,10 @@ body, html {
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     -ms-flex-line-pack: center;
-        align-content: center;
+    align-content: center;
     color: #fafafa;
     text-shadow: 1px 1px 2px #000;
     border-radius: 5px;
@@ -333,6 +383,59 @@ body, html {
     padding: 2px;
 }
 
+/* GAME */
+
+#game-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100vw;
+    margin: auto 0;
+}
+
+.top-game-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    width: 90%;
+    height: auto;
+    background-color: rgba(96, 93, 49, 0.248);
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    margin: auto;
+}
+
+.game-counter-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    padding: 5px;
+    background-color: rgba(96, 93, 49, 0.118);
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    margin: auto;
+}
 
 /* -----------------------------------
     MEDIA QUERY
@@ -391,6 +494,7 @@ body, html {
     .start-game-box {
         padding: 0.2rem;
     }
+
     .start-game-text {
         font-size: 1.5rem;
     }
@@ -403,13 +507,6 @@ body, html {
     .cards {
         width: 127px;
         height: 155px;
-        position: relative;
-        -webkit-transition: -webkit-transform .5s;
-        transition: -webkit-transform .5s;
-        -o-transition: transform .5s;
-        transition: transform .5s;
-        transition: transform .5s, -webkit-transform .5s;
-
     }
 
 }
@@ -419,30 +516,10 @@ body, html {
     .cards {
         width: 152px;
         height: 185px;
-        position: relative;
-        -webkit-transition: -webkit-transform .5s;
-        transition: -webkit-transform .5s;
-        -o-transition: transform .5s;
-        transition: transform .5s;
-        transition: transform .5s, -webkit-transform .5s;
     }
 
     .game-board {
         padding: 0;
-    }
-}
-
-@media (min-width: 960px) {
-    .cards {
-        width: 172px;
-        height: 210px;
-        position: relative;
-        -webkit-transition: -webkit-transform .5s;
-        transition: -webkit-transform .5s;
-        -o-transition: transform .5s;
-        transition: transform .5s;
-        transition: transform .5s, -webkit-transform .5s;
-        margin: 4px 30px;
     }
 }
 
@@ -463,6 +540,19 @@ body, html {
     }
 
     .memorize-text {
-        height: 5vh;
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 1550px) {
+    .cards {
+        width: 197px;
+        height: 240px;
+        padding: 0;
+        margin: 1vh 2vw;
+    }
+
+    .memorize-text {
+        font-size: 1.8rem;
     }
 }
