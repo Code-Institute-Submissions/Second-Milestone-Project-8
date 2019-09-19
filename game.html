@@ -22,6 +22,10 @@
 
 <body>
     <header id="game-header">
+        <div id="memorize" class="memorize">
+            <div class="memorize-text">MEMORIZE</div>
+        </div>
+
         <div id="top-memorize-box" class="top-memorize-box">
             <div class="counter-box">
                 <div id="memorize-countdown" class="time-countdown"></div>
@@ -29,13 +33,19 @@
         </div>
 
         <div id="top-game-box" class="top-game-box">
+            <div class="top-game-title">
+                <div class="attempts-title">ATTEMPTS</div>
+                <div class="countdown-title">TIME</div>
+            </div>
+            <div class="top-game-counters">
+                <div class="attempts-box">
+                    <div id="attempts-counter" class="attempts-counter">0</div>
+                </div>
+                <div class="counter-box">
+                    <div id="game-countdown" class="time-countdown"></div>
+                </div>
+            </div>
 
-            <div class="attempts-box">
-                <div id="attempts-counter" class="attempts-counter">0</div>
-            </div>
-            <div class="counter-box">
-                <div id="game-countdown" class="time-countdown"></div>
-            </div>
         </div>
 
     </header>
@@ -91,10 +101,6 @@
             </div>
         </div>
     </section>
-
-    <footer id="memorize-footer" class="memorize-footer">
-        <div class="memorize-text">MEMORIZE</div>
-    </footer>
 
     <!-- Scripts-->
     <script src="assets/js/game.js"></script>

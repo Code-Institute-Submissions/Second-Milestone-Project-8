@@ -22,7 +22,6 @@ html {
     justify-content: center;
     margin: 0;
     padding: 0;
-
     min-height: 100vh;
     min-width: 100%;
     background-image: url(../images/background.jpg);
@@ -242,6 +241,7 @@ html {
     flex: 0 1 auto;
     margin: 0 auto;
     margin-bottom: 2vh;
+
     border: 2px solid rgba(0, 0, 0, 0.5);
     border-radius: 10px;
 }
@@ -267,52 +267,29 @@ html {
     font-weight: 400;
 }
 
-/* MEMORIZE */
+/*GAME */
 
-#game-board,
-#memorize-footer {
+#game-board {
     margin: auto 0;
 }
 
-.attempts-box {
+.attempts-title,
+.countdown-title {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    justify-items: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    width: 80px;
-    height: 80px;
-    padding: 5px;
-    background-color: rgba(96, 93, 49, 0.118);
-    border: 2px solid rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    margin: 10px auto;
-}
-
-.attempts-counter {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    width: 60px;
-    height: 60px;
-    background-color: #343a4025;
-    font-size: 2rem;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
     justify-content: center;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+    width: 50%;
+    margin: 0 auto;
     color: #fafafa;
     text-shadow: 1px 1px 2px #000;
     border-radius: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.5);
-    margin: 3px 3px;
-    padding: 0;
 }
 
+.attempts-box,
 .counter-box {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -321,23 +298,42 @@ html {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    width: 80px;
-    height: 80px;
-    padding: 5px;
-    background-color: rgba(96, 93, 49, 0.118);
-    border: 2px solid rgba(0, 0, 0, 0.5);
+    padding: 2px;
+    background-color: rgb(174, 175, 168);
+    -webkit-box-shadow: inset 0px 0px 30px -3px rgba(0, 0, 0, 0.84);
+    -moz-box-shadow: inset 0px 0px 30px -3px rgba(0, 0, 0, 0.84);
+    box-shadow: inset 0px 0px 30px -3px rgba(0, 0, 0, 0.84);
     border-radius: 10px;
     margin: 10px auto;
 }
 
+.top-game-counters,
+.top-game-title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+}
+
+.attempts-counter,
 .time-countdown {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    width: 60px;
-    height: 60px;
-    background-color: #343a4025;
-    font-size: 2rem;
+    width: 40px;
+    height: 40px;
+    background-color: #686767;
+    font-size: 1.5rem;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
@@ -347,12 +343,14 @@ html {
     color: #fafafa;
     text-shadow: 1px 1px 2px #000;
     border-radius: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: inset 0px 0px 30px -3px rgba(0, 0, 0, 0.84);
+    -moz-box-shadow: inset 0px 0px 30px -3px rgba(0, 0, 0, 0.84);
+    box-shadow: inset 0px 0px 30px -3px rgba(0, 0, 0, 0.84);
     margin: 3px 3px;
     padding: 0;
 }
 
-.memorize-footer {
+.memorize {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -387,22 +385,22 @@ html {
 
 #game-header {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
     width: 100vw;
-    margin: auto 0;
+    margin: auto 0 0 0;
 }
 
 .top-game-box {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
+    -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
+    -ms-flex-direction: column;
+    flex-direction: column;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
@@ -412,12 +410,13 @@ html {
     -webkit-box-flex: 0;
     -ms-flex: 0 1 auto;
     flex: 0 1 auto;
-    width: 90%;
+    width: 80%;
     height: auto;
     background-color: rgba(96, 93, 49, 0.248);
-    border: 2px solid rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     margin: auto;
+    padding-top: 1vh;
 }
 
 .game-counter-box {
@@ -512,14 +511,20 @@ html {
 }
 
 @media (min-width: 694px) {
-
-    .cards {
-        width: 152px;
-        height: 185px;
-    }
-
     .game-board {
         padding: 0;
+    }
+
+    .top-game-box {
+        width: 70%;
+    }
+
+    .attempts-counter,
+    .time-countdown {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+
     }
 }
 
@@ -531,6 +536,16 @@ html {
 }
 
 @media (min-width: 1328px) {
+    .memorize-text {
+        font-size: 1.5rem;
+    }
+
+    .top-game-box {
+        width: 60%;
+    }
+}
+
+@media (min-width: 1550px) {
 
     .cards {
         width: 172px;
@@ -540,19 +555,7 @@ html {
     }
 
     .memorize-text {
-        font-size: 1.5rem;
-    }
-}
-
-@media (min-width: 1550px) {
-    .cards {
-        width: 197px;
-        height: 240px;
-        padding: 0;
-        margin: 1vh 2vw;
+        font-size: 1.4rem;
     }
 
-    .memorize-text {
-        font-size: 1.8rem;
-    }
 }

@@ -29,7 +29,7 @@ function memorizeCards() {
 };
 
 function memorizeHideCards() {
-    lockBoard = true;
+    lockBoard = false;
     $(cards).removeClass('flip');
     return;
 };
@@ -41,15 +41,16 @@ function memorizeHideCards() {
         i--;
         if (i >= 0) {
             $('#memorize-countdown').html(i);
-            //memorizeCards();
+            
+            memorizeCards();  // Show game cards 
         }
         if (i === 0) {
             clearInterval(i);
             // funcao para desvirar todas as cartas
             $('#top-memorize-box').hide();
             $('#top-game-box').show();
-            $('#memorize-footer').hide();
-            //memorizeHideCards();
+            $('#memorize').hide();
+            memorizeHideCards();  // Hide game cards
         }
     }, 1000);
     
@@ -57,7 +58,7 @@ function memorizeHideCards() {
 
 //GAME COUNTER -  30 SECONDS COUNTDOWN
 (function gameCounter() {
-    let i = 36;
+    let i = 36;  //
     setInterval(function () {
         i--;
         if (i >= 0) {
