@@ -270,7 +270,7 @@ html {
 /*GAME */
 
 #game-board {
-    margin: auto 0;
+    margin: 2.5vh 0 auto 0;
 }
 
 .attempts-title,
@@ -304,7 +304,7 @@ html {
     -moz-box-shadow: inset 0px 0px 30px -3px rgba(0, 0, 0, 0.84);
     box-shadow: inset 0px 0px 30px -3px rgba(0, 0, 0, 0.84);
     border-radius: 10px;
-    margin: 10px auto;
+    margin: 4px auto 10px auto;
 }
 
 .top-game-counters,
@@ -409,14 +409,13 @@ html {
     justify-content: center;
     -webkit-box-flex: 0;
     -ms-flex: 0 1 auto;
-    flex: 0 1 auto;
     width: 80%;
     height: auto;
     background-color: rgba(96, 93, 49, 0.248);
     border: 1px solid rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     margin: auto;
-    padding-top: 1vh;
+    padding-top: 1.5vh;
 }
 
 .game-counter-box {
