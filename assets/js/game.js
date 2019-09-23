@@ -7,6 +7,9 @@ let flippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 let gameInstructions;
+let matchCounter = 0;
+let gCounter;
+let timeLeft = 0;
 
 // INDEX ----------------------------------------
 
@@ -40,7 +43,7 @@ $('#hard-mode-button').click(function () {
     changeGameInstructions();
 });
 
-// Level Selection countdown Time in seconds to local store //
+// Level Selection countdown Time in seconds to local storage //
 $('#easy-mode-button').click(function () {
     localStorage.setItem("levelSelectionSeconds", 9); // 9 - 1 counter 8 secondas
 });
@@ -54,6 +57,8 @@ $('#hard-mode-button').click(function () {
 
 //hide top-game-box div while memorize is show
 $('#top-game-box').hide();
+//hide top-results-box div while memorize/game is show
+$('#results-header').hide();
 
 //MEMORIZE CARDS - ALL CARDS OPENED
 function memorizeCards() {
@@ -75,56 +80,80 @@ function memorizeHideCards() {
         i--;
         if (i >= 0) {
             $('#memorize-countdown').html(i);
-            
-            memorizeCards();  // Show game cards before counter start
+            memorizeCards(); // Show game cards before counter start
         }
         if (i === 0) {
             clearInterval(i);
-            $('#top-memorize-box').hide(); // div top-memorize-box hide after counter
+            $('#top-memorize-box').hide(); // Div top-memorize-box hide after counter
             $('#top-game-box').show(); // Div top-game-box show after memorize countdown
             $('#memorize').hide(); // Div Memorize hide after counter
-            memorizeHideCards();  // Hide game cards after memorize counter
+            memorizeHideCards(); // Hide game cards after memorize counter
+            gameCounter();
         }
     }, 1000);
-    
+
 })();
 
 //GAME COUNTER -  30 SECONDS COUNTDOWN
-(function gameCounter() {
-    let i = 36;  //
-    setInterval(function () {
+function gameCounter() {
+    let i = 30; //
+    gCounter = setInterval(function () {
         i--;
+
         if (i >= 0) {
             $('#game-countdown').html(i);
-
+        }
+        if (matchCounter === 6) { // If all 12 cards match - Stop countdown
+            gameWin();
+            timeLeft = i;
         }
         if (i === 0) {
             clearInterval(i);
-            // funcao para delay de 5 segundos antes do resultado
+            GameOverDelay();
+        }
+
+    }, 1000);
+};
+
+function gameWin() {
+    clearInterval(gCounter); // stop the game time countdown
+    
+    GameOverDelay(); // 3 seconds delay to show the game results page
+};
+
+function GameOverDelay() {
+    let i = 3;
+    setInterval(function () {
+        i--;
+        if (i === 0) {
+            $('#top-game-box').hide();  // hide game top div
+            $('#game-board').hide();    // hide game board
+            showResultsPage();
         }
     }, 1000);
-})();
+};
 
+function showResultsPage() {
+    window.location = "result.html";
+}
 
 // Flip Card
 
 function flipCard() {
-    if (lockBoard) 
-    return;
+    if (lockBoard)
+        return;
     if (this === firstCard)
-    return;
+        return;
 
     $(this).addClass('flip');
-    console.log(this);
 
-    if (!flippedCard) {  //first click
+    if (!flippedCard) { //first click
         flippedCard = true;
         firstCard = this;
-
         return;
     }
 
-    secondCard = this;   // second click
+    secondCard = this; // second click
 
     // // Every 2 cards flipped, counter increases +1
     attemptsCounter++;
@@ -144,10 +173,10 @@ function checkForMatch() {
 
     if (cardMatch === true) {
         disableCards();
+        matchCounter++; // Each Match add matchCounter +1 -- needed for finish game when all cards are matched
     } else {
         unflipCards();
     }
-
 }
 
 function disableCards() {
@@ -165,7 +194,7 @@ function unflipCards() {
         secondCard.classList.remove('flip');
 
         resetBoard();
-    }, 1500);
+    }, 1000);
 }
 
 function resetBoard() {
