@@ -32,7 +32,7 @@
                 <div id="memorize-countdown" class="time-countdown"></div>
             </div>
         </div>
-        <!-- ----------- -->
+
         <!-- GAME PAGE TOP-->
         <div id="top-game-box" class="top-game-box">
             <div class="top-game-title">
@@ -49,7 +49,8 @@
             </div>
         </div>
     </header>
-    <section id="game-board">
+    <!-- GAME BOARD -->
+    <div id="game-board">
         <div class="row col-md-10 col-xl-8 mx-auto game-board">
             <div class="col-4 col-md-3 col-xl-2 cards" data-name="germany">
                 <img class="card-face-up" src="assets/images/germany.jpg" alt="Germany">
@@ -100,6 +101,22 @@
                 <img class="card-face-down" src="assets/images/face-down.jpg" alt="face-down">
             </div>
         </div>
+    </div>
+    <!-- RESULT PAGE-->
+    <section id="result-page-wrap">
+        <div id="result-title" class="result-title">RESULT</div>
+        <div id="result-emoticon" class="result-emoticon">
+            <i class="far fa-smile" aria-hidden="true"></i>
+        </div>
+        <div id="result-message" class="result-message"></div>
+        <!-- GAME WIN -->
+        <div class="game-win-box">
+            <div id="result-time-box" class="result-time-box"></div>
+            <div id="result-attempts" class="result-attempts"></div>
+        </div>
+        <!-- TRY AGAIN AND BACK MENU -->
+        <div class="try-again-box"></div>
+        <div class="results-main-menu"></div>
     </section>
 
     <!-- Scripts-->

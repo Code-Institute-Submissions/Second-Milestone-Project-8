@@ -10,6 +10,9 @@ let gameInstructions;
 let matchCounter = 0;
 let gCounter;
 let timeLeft = 0;
+let timeResult;
+let currentRecord = localStorage.getItem("timeRecord");
+let newRecord = false;
 
 // INDEX ----------------------------------------
 
@@ -45,7 +48,7 @@ $('#hard-mode-button').click(function () {
 
 // Level Selection countdown Time in seconds to local storage //
 $('#easy-mode-button').click(function () {
-    localStorage.setItem("levelSelectionSeconds", 9); // 9 - 1 counter 8 secondas
+    localStorage.setItem("levelSelectionSeconds", 9); // 9 - 1 counter 8 seconds
 });
 $('#normal-mode-button').click(function () {
     localStorage.setItem("levelSelectionSeconds", 6); // 6 - 1 counter 5 seconds
@@ -58,7 +61,8 @@ $('#hard-mode-button').click(function () {
 //hide top-game-box div while memorize is show
 $('#top-game-box').hide();
 //hide top-results-box div while memorize/game is show
-$('#results-header').hide();
+$('#result-page-wrap').hide();
+
 
 //MEMORIZE CARDS - ALL CARDS OPENED
 function memorizeCards() {
@@ -96,7 +100,7 @@ function memorizeHideCards() {
 
 //GAME COUNTER -  30 SECONDS COUNTDOWN
 function gameCounter() {
-    let i = 30; //
+    let i = 30; // mudar para 30 apos finalizar pagina resultados
     gCounter = setInterval(function () {
         i--;
 
@@ -104,37 +108,69 @@ function gameCounter() {
             $('#game-countdown').html(i);
         }
         if (matchCounter === 6) { // If all 12 cards match - Stop countdown
-            gameWin();
             timeLeft = i;
+            timeResult = 30 - timeLeft  // Time result is 30 seconds minus the time spent to match all cards
+            lockBoard = true;
+            checkRecord();
+            stopGameCountdown();
         }
-        if (i === 0) {
-            clearInterval(i);
-            GameOverDelay();
+        if (i === 0) { // If the game finish when time is out
+            timeLeft = i;
+            lockBoard = true;
+            gameOverDelay(); //invoke gameOverDelay function
         }
 
     }, 1000);
 };
 
-function gameWin() {
+function stopGameCountdown() {
     clearInterval(gCounter); // stop the game time countdown
-    
-    GameOverDelay(); // 3 seconds delay to show the game results page
+    gameOverDelay(); //invoke gameOverDelay function
 };
 
-function GameOverDelay() {
-    let i = 3;
+function gameOverDelay() {  // 4 seconds delay before show the game results page
+    let i = 4;
     setInterval(function () {
         i--;
         if (i === 0) {
-            $('#top-game-box').hide();  // hide game top div
-            $('#game-board').hide();    // hide game board
             showResultsPage();
         }
     }, 1000);
 };
 
+function checkRecord() {
+    if (currentRecord === null) {
+        localStorage.setItem("timeRecord", timeResult); // If is a newRecord, localstorage will be updated 
+        newRecord = true;
+    }
+
+    if (timeResult < currentRecord) { 
+        newRecord = true;
+    }
+}
+
 function showResultsPage() {
-    window.location = "result.html";
+    $('#top-game-box').hide();  // hide game top div
+    $('#game-board').hide();    // hide game board div 
+    $('#result-page-wrap').show() // show result page div
+
+    if (timeLeft === 0){ //GAME LOST 
+        $('#result-message').html('YOUR TIME IS UP!!!'); // show TIME IS UP message
+        $('#result-time-box').hide() // hide result time box div
+        $('#result-attempts').hide() // hide result attempts box div
+        
+    }
+    else {              // GAME WIN
+        if (newRecord === true) {  //Check for a new record
+        $('#result-message').html('NEW RECORD!!!'); // show NEW RECORD message
+        $('#result-time-box').html(timeResult);
+        $('#result-attempts').html(attemptsCounter);
+        } else { 
+            $('#result-message').html('WELL DONE!!!'); // show WELL DONE message
+            $('#result-time-box').html(timeResult);
+            $('#result-attempts').html(attemptsCounter);
+        }
+    }
 }
 
 // Flip Card
