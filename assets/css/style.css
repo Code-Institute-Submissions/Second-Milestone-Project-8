@@ -245,10 +245,19 @@ html {
 /* GAME TOP BOX */
 
 #game-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     height: 100%;
     width: 100vw;
     margin: auto 0 0 0;
@@ -301,7 +310,9 @@ html {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
@@ -324,7 +335,6 @@ html {
     padding: 2px;
     background-color: rgb(174, 175, 168);
     -webkit-box-shadow: inset 0px 0px 30px -3px rgba(0, 0, 0, 0.84);
-    -moz-box-shadow: inset 0px 0px 30px -3px rgba(0, 0, 0, 0.84);
     box-shadow: inset 0px 0px 30px -3px rgba(0, 0, 0, 0.84);
     border-radius: 10px;
     margin: 4px auto 10px auto;
@@ -367,7 +377,6 @@ html {
     text-shadow: 1px 1px 2px #000;
     border-radius: 5px;
     -webkit-box-shadow: inset 0px 0px 30px -3px rgba(0, 0, 0, 0.84);
-    -moz-box-shadow: inset 0px 0px 30px -3px rgba(0, 0, 0, 0.84);
     box-shadow: inset 0px 0px 30px -3px rgba(0, 0, 0, 0.84);
     margin: 3px 3px;
     padding: 0;
@@ -414,12 +423,19 @@ html {
 }
 
 .cards:active {
-    transform: scale(0.97);
+    -webkit-transform: scale(0.97);
+        -ms-transform: scale(0.97);
+            transform: scale(0.97);
+    -webkit-transition: -webkit-transform .5s;
+    transition: -webkit-transform .5s;
+    -o-transition: transform .5s;
     transition: transform .5s;
+    transition: transform .5s, -webkit-transform .5s;
 }
 
 .cards.flip {
-    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
 }
 
 .card-face-up,
@@ -435,7 +451,8 @@ html {
 }
 
 .card-face-up {
-    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
 }
 
 /* -----------RESULTS------------- */
@@ -444,7 +461,10 @@ html {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
@@ -539,7 +559,6 @@ html {
     height: 50px;
     background-color: rgb(174, 175, 168);
     -webkit-box-shadow: inset 0px 0px 30px -3px rgba(0, 0, 0, 0.84);
-    -moz-box-shadow: inset 0px 0px 30px -3px rgba(0, 0, 0, 0.84);
     box-shadow: inset 0px 0px 30px -3px rgba(0, 0, 0, 0.84);
     border-radius: 10px;
     margin: 4px auto 10px auto;
@@ -582,7 +601,6 @@ html {
     text-shadow: 1px 1px 2px #000;
     border-radius: 5px;
     -webkit-box-shadow: inset 0px 0px 30px -3px rgba(0, 0, 0, 0.84);
-    -moz-box-shadow: inset 0px 0px 30px -3px rgba(0, 0, 0, 0.84);
     box-shadow: inset 0px 0px 30px -3px rgba(0, 0, 0, 0.84);
     margin: 0 auto;
     padding: 0;

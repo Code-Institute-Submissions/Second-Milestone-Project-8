@@ -1,5 +1,5 @@
 // ---------  Variables ---------- //
-let levelSelectionSeconds;
+let levelSelectionSeconds = 0; // Easy mode by default
 let countdownMemorize;
 const cards = document.querySelectorAll('.cards');
 let attemptsCounter = 0;
@@ -47,6 +47,9 @@ $('#hard-mode-button').click(function () {
 });
 
 // Level Selection countdown Time in seconds to local storage //
+
+localStorage.setItem("levelSelectionSeconds", 9); // Set easy mode as default value 
+
 $('#easy-mode-button').click(function () {
     localStorage.setItem("levelSelectionSeconds", 9); // 9 - 1 counter 8 seconds
 });
@@ -129,7 +132,7 @@ function stopGameCountdown() {
 };
 
 function gameOverDelay() { // 4 seconds delay before show the game results page
-    let i = 4;
+    let i = 2;
     setInterval(function () {
         i--;
         if (i === 0) {
