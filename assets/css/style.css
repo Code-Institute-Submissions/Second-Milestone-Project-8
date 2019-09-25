@@ -180,7 +180,6 @@ html {
     flex: 0 1 auto;
     margin: 0 auto;
     margin-bottom: 2vh;
-
     border: 2px solid rgba(0, 0, 0, 0.5);
     border-radius: 10px;
 }
@@ -522,11 +521,8 @@ html {
     -ms-flex-pack: center;
     justify-content: center;
     -webkit-box-flex: 0;
-    -ms-flex: 0 1 auto;
     width: 80%;
-    background-color: rgba(96, 93, 49, 0.248);
-    border: 1px solid rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
+    margin-bottom: 20px;
     padding-top: 1.5vh;
 }
 
@@ -539,6 +535,8 @@ html {
     -ms-flex-align: center;
     align-items: center;
     padding: 2px;
+    width: 50px;
+    height: 50px;
     background-color: rgb(174, 175, 168);
     -webkit-box-shadow: inset 0px 0px 30px -3px rgba(0, 0, 0, 0.84);
     -moz-box-shadow: inset 0px 0px 30px -3px rgba(0, 0, 0, 0.84);
@@ -562,7 +560,7 @@ html {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    width: 100%;
+    width: 50%;
 }
 
 .result-time-box,
@@ -608,6 +606,48 @@ html {
     margin: 0 auto;
 }
 
+.try-again-box,
+.results-main-menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    margin: 0 auto;
+    padding: 10px 0;
+    margin-bottom: 2vh;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.try-again-button,
+.main-menu-button {
+    margin: 0 10px 0 0;
+    font-size: 50px;
+}
+
+.try-again-text,
+.main-menu-text {
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-box-pack: left;
+    -ms-flex-pack: left;
+    justify-content: left;
+    margin: 0;
+    font-size: 1.7rem;
+    font-weight: 400;
+}
 
 /* -----------------------------------
     MEDIA QUERY
@@ -669,6 +709,11 @@ html {
 
     .start-game-text {
         font-size: 1.5rem;
+    }
+
+    .game-win-box {
+        margin-bottom: 10px;
+
     }
 }
 

@@ -41,7 +41,7 @@
             </div>
             <div class="top-game-counters">
                 <div class="attempts-box">
-                    <div id="attempts-counter" class="attempts-counter">-</div>
+                    <div id="attempts-counter" class="attempts-counter">0</div>
                 </div>
                 <div class="counter-box">
                     <div id="game-countdown" class="time-countdown">30</div>
@@ -105,12 +105,12 @@
     <!-- RESULT PAGE-->
     <section id="result-page-wrap">
         <div id="result-title" class="result-title">RESULT</div>
-        <div id="result-emoticon" class="result-emoticon">
-            <i class="far fa-smile" aria-hidden="true"></i>
+        <div class="result-emoticon">
+            <i id="result-emoticon" class="far fa-smile" aria-hidden="true"></i>
         </div>
         <div id="result-message" class="result-message"></div>
         <!-- GAME WIN -->
-        <div class="game-win-box">
+        <div id="game-win-box" class="game-win-box">
             <div class="game-win-box-time">
                 <div class="result-numbers-box">
                     <div id="result-time-box" class="result-time-box">0</div>
@@ -125,8 +125,18 @@
             </div>
         </div>
         <!-- TRY AGAIN AND BACK MENU -->
-        <div class="try-again-box"></div>
-        <div class="results-main-menu"></div>
+        <a href="game.html" role="button" class="col-10 col-md-6 col-lg-4 col-xl-3 mx-auto btn btn-outline-dark try-again-box">
+            <div class="row try-again-button">
+                <i class="fas fa-undo" aria-hidden="true"></i>
+            </div>
+            <div class="row try-again-text">TRY AGAIN</div>
+        </a>
+        <a href="index.html" role="button" class="col-10 col-md-6 col-lg-4 col-xl-3 mx-auto btn btn-outline-dark results-main-menu">
+                <div class="row main-menu-button">
+                    <i class="fas fa-home" aria-hidden="true"></i>
+                </div>
+                <div class="row main-menu-text">MAIN MENU</div>
+            </a>
     </section>
 
     <!-- Scripts-->

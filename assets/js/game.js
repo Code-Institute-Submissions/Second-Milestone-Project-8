@@ -109,7 +109,7 @@ function gameCounter() {
         }
         if (matchCounter === 6) { // If all 12 cards match - Stop countdown
             timeLeft = i;
-            timeResult = 30 - timeLeft  // Time result is 30 seconds minus the time spent to match all cards
+            timeResult = 30 - timeLeft // Time result is 30 seconds minus the time spent to match all cards
             lockBoard = true;
             checkRecord();
             stopGameCountdown();
@@ -128,7 +128,7 @@ function stopGameCountdown() {
     gameOverDelay(); //invoke gameOverDelay function
 };
 
-function gameOverDelay() {  // 4 seconds delay before show the game results page
+function gameOverDelay() { // 4 seconds delay before show the game results page
     let i = 4;
     setInterval(function () {
         i--;
@@ -144,28 +144,28 @@ function checkRecord() {
         newRecord = true;
     }
 
-    if (timeResult < currentRecord) { 
+    if (timeResult < currentRecord) {
         newRecord = true;
     }
 }
 
 function showResultsPage() {
-    $('#top-game-box').hide();  // hide game top div
-    $('#game-board').hide();    // hide game board div 
+    $('#top-game-box').hide(); // hide game top div
+    $('#game-board').hide(); // hide game board div 
     $('#result-page-wrap').show() // show result page div
 
-    if (timeLeft === 0){ //GAME LOST 
+    if (timeLeft === 0) { //GAME LOST 
         $('#result-message').html('YOUR TIME IS UP!!!'); // show TIME IS UP message
-        $('#result-time-box').hide() // hide result time box div
+        $('#result-emoticon').removeClass('fa-smile').addClass('fa-frown'); // show frown emoticon
+        $('#game-win-box').hide() // hide result time box div
         $('#result-attempts').hide() // hide result attempts box div
-        
-    }
-    else {              // GAME WIN
-        if (newRecord === true) {  //Check for a new record
-        $('#result-message').html('NEW RECORD!!!'); // show NEW RECORD message
-        $('#result-time-box').html(timeResult);
-        $('#result-attempts').html(attemptsCounter);
-        } else { 
+
+    } else { // GAME WIN
+        if (newRecord === true) { //Check for a new record
+            $('#result-message').html('NEW RECORD!!!'); // show NEW RECORD message
+            $('#result-time-box').html(timeResult);
+            $('#result-attempts').html(attemptsCounter);
+        } else {
             $('#result-message').html('WELL DONE!!!'); // show WELL DONE message
             $('#result-time-box').html(timeResult);
             $('#result-attempts').html(attemptsCounter);
@@ -183,7 +183,7 @@ function flipCard() {
 
     $(this).addClass('flip');
 
-    if (!flippedCard) { //first click
+    if (!flippedCard) { // If card is not flipped
         flippedCard = true;
         firstCard = this;
         return;
@@ -195,7 +195,7 @@ function flipCard() {
     attemptsCounter++;
     attempts();
 
-    checkForMatch();
+    checkForMatch(); // After 2 cards flipped, invoke the checkForMatch function
 }
 
 // Attempts - Update counter 
@@ -205,31 +205,30 @@ function attempts() {
 
 // Card Match
 function checkForMatch() {
-    let cardMatch = firstCard.dataset.name === secondCard.dataset.name;
+    let cardMatch = firstCard.dataset.name === secondCard.dataset.name; // if dataset-name of first card flipped is equal to second card 
 
     if (cardMatch === true) {
-        disableCards();
+        disableCards(); // invoke function to disable matched cards
         matchCounter++; // Each Match add matchCounter +1 -- needed for finish game when all cards are matched
     } else {
-        unflipCards();
+        unflipCards(); // if not match, invoke function to unflip cards
     }
 }
 
-function disableCards() {
-    firstCard.removeEventListener('click', flipCard);
-    secondCard.removeEventListener('click', flipCard);
-
+function disableCards() { // after a card match this function is invoked to disable that cards
+    firstCard.removeEventListener('click', flipCard); //remove the event click from first flipcard
+    secondCard.removeEventListener('click', flipCard); //remove the event click from second flipcard
     resetBoard();
 }
 
-function unflipCards() {
+function unflipCards() { // this function unflip the cards
     lockBoard = true;
 
     setTimeout(() => {
-        firstCard.classList.remove('flip');
-        secondCard.classList.remove('flip');
+        $(firstCard).removeClass('flip'); // remove class flip from first card
+        $(secondCard).removeClass('flip'); // remove class flip from second card
 
-        resetBoard();
+        resetBoard(); // invoke reset board function
     }, 1000);
 }
 
@@ -238,7 +237,7 @@ function resetBoard() {
     [firstCard, secondCard] = [null, null];
 }
 
-(function shuffle() {
+(function shuffle() { // This function select each card on the board and shuffle to another position
     cards.forEach(card => {
         let cardPosition = Math.floor(Math.random() * 12);
         card.style.order = cardPosition;
