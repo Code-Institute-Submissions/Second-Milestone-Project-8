@@ -82,7 +82,7 @@ html {
     -ms-flex: 0 1 auto;
     flex: 0 1 auto;
     background-color: rgba(96, 93, 49, 0.248);
-    border: 0.5px solid #4244375d;
+    border: 1px solid #4244375d;
     border-radius: 10px;
 }
 
@@ -125,7 +125,7 @@ html {
     flex: 0 1 auto;
     margin: 1.5vh;
     padding: 10px;
-    border: 0.5px solid #4244375d;
+    border: 1px solid #4244375d;
     background-color: rgba(96, 93, 49, 0.248);
     border-radius: 10px;
 }
@@ -184,7 +184,7 @@ html {
 }
 
 .btn {
-    border: 0.5px solid #4244375d;
+    border: 1px solid #4244375d;
 }
 
 /* Bootstrap 4 BTN-DARK color with reduced opacity*/
@@ -671,7 +671,7 @@ html {
     margin: 0 auto;
     padding: 10px 0;
     margin-bottom: 2vh;
-    border: 0.5px solid #42443798;
+    border: 1px solid #42443798;
     border-radius: 10px;
 }
 
