@@ -1,5 +1,5 @@
 // ---------  Variables ---------- //
-let levelSelectionSeconds = 0; // Easy mode by default
+let levelSelectionSeconds;
 let countdownMemorize;
 const cards = document.querySelectorAll('.cards');
 let attemptsCounter = 0;
@@ -48,8 +48,6 @@ $('#hard-mode-button').click(function () {
 
 // Level Selection countdown Time in seconds to local storage //
 
-localStorage.setItem("levelSelectionSeconds", 9); // Set easy mode as default value 
-
 $('#easy-mode-button').click(function () {
     localStorage.setItem("levelSelectionSeconds", 9); // 9 - 1 counter 8 seconds
 });
@@ -60,6 +58,14 @@ $('#hard-mode-button').click(function () {
     localStorage.setItem("levelSelectionSeconds", 4); // 4 - 1 counter 3 seconds
 });
 //-------------------------------------------------------
+
+// function to check if the player has selected any difficulty level, if not Easy mode is default.
+$('#play-game-button').click( function() {
+    if (localStorage.getItem("levelSelectionSeconds") === null) {
+        localStorage.setItem("levelSelectionSeconds", 9);
+        return;
+    }
+})
 
 //hide top-game-box div while memorize is show
 $('#top-game-box').hide();
