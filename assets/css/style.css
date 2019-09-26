@@ -82,9 +82,7 @@ html {
     -ms-flex: 0 1 auto;
     flex: 0 1 auto;
     background-color: rgba(96, 93, 49, 0.248);
-    -webkit-box-shadow: 0px 0px 12px -1px rgba(0, 0, 0, 0.85);
-    -moz-box-shadow: 0px 0px 12px -1px rgba(0, 0, 0, 0.85);
-    box-shadow: 0px 0px 12px -1px rgba(0, 0, 0, 0.85);
+    border: 0.5px solid #4244375d;
     border-radius: 10px;
 }
 
@@ -127,11 +125,8 @@ html {
     flex: 0 1 auto;
     margin: 1.5vh;
     padding: 10px;
+    border: 0.5px solid #4244375d;
     background-color: rgba(96, 93, 49, 0.248);
-    -webkit-box-shadow: 0px 0px 12px -1px rgba(0, 0, 0, 0.85);
-    -moz-box-shadow: 0px 0px 12px -1px rgba(0, 0, 0, 0.85);
-    box-shadow: 0px 0px 12px -1px rgba(0, 0, 0, 0.85);
-
     border-radius: 10px;
 }
 
@@ -185,15 +180,11 @@ html {
     flex: 0 1 auto;
     margin: 0 auto;
     margin-bottom: 2vh;
-    background-color: rgba(96, 93, 49, 0.247);
-    -webkit-box-shadow: 0px 0px 12px -1px rgba(0, 0, 0, 0.85);
-    -moz-box-shadow: 0px 0px 12px -1px rgba(0, 0, 0, 0.85);
-    box-shadow: 0px 0px 12px -1px rgba(0, 0, 0, 0.85);
     border-radius: 10px;
 }
 
 .btn {
-    border: none;
+    border: 0.5px solid #4244375d;
 }
 
 /* Bootstrap 4 BTN-DARK color with reduced opacity*/
@@ -680,10 +671,7 @@ html {
     margin: 0 auto;
     padding: 10px 0;
     margin-bottom: 2vh;
-    border: 1px solid rgba(0, 0, 0, 0.3);    
-    -webkit-box-shadow: 0px 0px 12px -1px rgba(0, 0, 0, 0.85);
-    -moz-box-shadow: 0px 0px 12px -1px rgba(0, 0, 0, 0.85);
-    box-shadow: 0px 0px 12px -1px rgba(0, 0, 0, 0.85);
+    border: 0.5px solid #42443798;
     border-radius: 10px;
 }
 
