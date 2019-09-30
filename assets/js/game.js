@@ -134,23 +134,13 @@ function gameCounter() {
 
 // 2 seconds delay before show the game results page
 function gameOverDelay() { 
-    let i = 2;
-    setInterval(function () {
-        i--;
-        if (i === 0) {
-            showResultsPage();
-        }
-    }, 1000);
+    setTimeout(showResultsPage, 2000); // 2 seconds delay before show the game results page
 };
 
 // This function Checks if is there any record recorded, if not, a new record will be record
 function checkRecord() {
-    if (currentRecord === null) {
+    if (!currentRecord || timeResult < currentRecord) {
         localStorage.setItem("timeRecord", timeResult); // If is a newRecord, localstorage will be updated 
-        newRecord = true;
-    }
-
-    if (timeResult < currentRecord) {
         newRecord = true;
     }
 }
