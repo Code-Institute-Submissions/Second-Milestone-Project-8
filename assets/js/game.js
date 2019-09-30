@@ -8,7 +8,6 @@ let lockBoard = false;
 let firstCard, secondCard;
 let gameInstructions;
 let matchCounter = 0;
-let gCounter;
 let timeLeft = 0;
 let timeResult;
 let currentRecord = localStorage.getItem("timeRecord");
@@ -17,50 +16,32 @@ let newRecord = false;
 // INDEX ----------------------------------------
 
 // Level Selection and instructions - button and text
-function changeGameInstructions() {
-    if (gameInstructions === 'easy') {
-        $('#game-instructions-text').html("1. In EASY MODE you will have 8 seconds to memorize the deck cards.<br>2. After 8 seconds all cards will be dealt face down and the game will begin.<br>3. You will have 30 seconds to find all pairs. Each attempt, right or wrong, will be counted and will set your final score.<br>4. The game ends after the player matches all pairs or the time is up.");
+$('.mode').click(function () {
+    const modeSeconds = {
+        "easy": 9,
+        "normal": 6,
+        "hard": 4
+    };
+    const mode = $(this).data("mode");
+    localStorage.setItem("levelSelectionSeconds", modeSeconds[mode]);
+
+    if (mode === 'easy') {
+        $('#game-instructions-text').html("1. In EASY MODE you will have 8 seconds to memorize the game board cards.<br>2. After 8 seconds all cards will be dealt face down and the game will begin.<br>3. You will have 45 seconds to find all pairs. Each attempt, right or wrong, will be counted and will set your final score.<br>4. The game ends after the player matches all pairs or the time is up.");
     }
-    if (gameInstructions === 'normal') {
-        $('#easy-mode-button').removeClass("active"); // By default EASY MODE is selected, after click in another mode, the active class from easy-mode is removed
-        $('#game-instructions-text').html("1. In NORMAL MODE you will have 5 seconds to memorize the deck cards.<br>2. After 5 seconds all cards will be dealt face down and the game will begin.<br>3. You will have 30 seconds to find all pairs. Each attempt, right or wrong, will be counted and will set your final score.<br>4. The game ends after the player matches all pairs or the time is up.");
+    // By default EASY MODE is selected, after click in another mode, the active class from easy-mode is removed
+    if (mode === 'normal') {
+        $('.mode').removeClass("active"); 
+        $('#game-instructions-text').html("1. In NORMAL MODE you will have 5 seconds to memorize the game board cards.<br>2. After 5 seconds all cards will be dealt face down and the game will begin.<br>3. You will have 30 seconds to find all pairs. Each attempt, right or wrong, will be counted and will set your final score.<br>4. The game ends after the player matches all pairs or the time is up.");
     }
-    if (gameInstructions === 'hard') {
-        $('#easy-mode-button').removeClass("active"); // By default EASY MODE is selected, after click in another mode, the active class from easy-mode is removed
-        $('#game-instructions-text').html("1. In HARD MODE you will have 3 seconds to memorize the deck cards.<br>2. After 3 seconds all cards will be dealt face down and the game will begin.<br>3. You will have 30 seconds to find all pairs. Each attempt, right or wrong, will be counted and will set your final score.<br>4. The game ends after the player matches all pairs or the time is up.");
+    // By default EASY MODE is selected, after click in another mode, the active class from easy-mode is removed
+    if (mode === 'hard') {
+        $('.mode').removeClass("active"); 
+        $('#game-instructions-text').html("1. In HARD MODE you will have 3 seconds to memorize the game board cards.<br>2. After 3 seconds all cards will be dealt face down and the game will begin.<br>3. You will have 20 seconds to find all pairs. Each attempt, right or wrong, will be counted and will set your final score.<br>4. The game ends after the player matches all pairs or the time is up.");
     }
-}
+})
 
-$('#easy-mode-button').click(function () {
-    gameInstructions = 'easy'
-    changeGameInstructions();
-});
-
-$('#normal-mode-button').click(function () {
-    gameInstructions = 'normal'
-    changeGameInstructions();
-});
-
-$('#hard-mode-button').click(function () {
-    gameInstructions = 'hard'
-    changeGameInstructions();
-});
-
-// Level Selection countdown Time in seconds to local storage //
-
-$('#easy-mode-button').click(function () {
-    localStorage.setItem("levelSelectionSeconds", 9); // 9 - 1 counter 8 seconds
-});
-$('#normal-mode-button').click(function () {
-    localStorage.setItem("levelSelectionSeconds", 6); // 6 - 1 counter 5 seconds
-});
-$('#hard-mode-button').click(function () {
-    localStorage.setItem("levelSelectionSeconds", 4); // 4 - 1 counter 3 seconds
-});
-//-------------------------------------------------------
-
-// function to check if the player has selected any difficulty level, if not Easy mode is default.
-$('#play-game-button').click( function() {
+// function to check if the player has selected any difficulty level, if not,  Easy mode is default.
+$('#play-game-button').click(function () {
     if (localStorage.getItem("levelSelectionSeconds") === null) {
         localStorage.setItem("levelSelectionSeconds", 9);
         return;
@@ -74,19 +55,22 @@ $('#result-page-wrap').hide();
 
 
 //MEMORIZE CARDS - ALL CARDS OPENED
+// When invoked all cards are show and the board is locked to avoid any user click
 function memorizeCards() {
     lockBoard = true;
     $(cards).addClass('flip');
     return;
 };
 
+// When memorize time is over all the cards are hide again and board click is unlocked
 function memorizeHideCards() {
     lockBoard = false;
     $(cards).removeClass('flip');
     return;
 };
 
-//MEMORIZE COUNTER = EASY - 8 Seconds / NORMAL - 5 SECONDS / HARD - 3 SECONDS COUNTDOWN
+/*MEMORIZE COUNTER = EASY - 8 Seconds / NORMAL - 5 SECONDS / HARD - 3 SECONDS COUNTDOWN
+This function check the difficult level selection value in seconds and create a countdown for the player memorize the card */
 (function memorizeCounter() {
     let i = localStorage.getItem("levelSelectionSeconds");
     setInterval(function () {
@@ -107,10 +91,25 @@ function memorizeHideCards() {
 
 })();
 
-//GAME COUNTER -  30 SECONDS COUNTDOWN
+//GAME COUNTER -  Easy Mode = 45 sec , Normal Mode = 30 sec, Hard mode = 20 sec
+
 function gameCounter() {
-    let i = 30; // mudar para 30 apos finalizar pagina resultados
-    gCounter = setInterval(function () {
+    const dataCheck = localStorage.getItem("levelSelectionSeconds")
+    let i;
+    if (dataCheck === "9") {
+        $("#game-countdown").html("45");
+        i = 45;
+    }
+    if (dataCheck === "6") {
+        $("#game-countdown").html("30");
+        i = 30;
+    }
+    if (dataCheck === "4") {
+        $("#game-countdown").html("20");
+        i = 20;
+    };
+
+    const gCounter = setInterval(function () {
         i--;
 
         if (i >= 0) {
@@ -121,7 +120,8 @@ function gameCounter() {
             timeResult = 30 - timeLeft // Time result is 30 seconds minus the time spent to match all cards
             lockBoard = true;
             checkRecord();
-            stopGameCountdown();
+            clearInterval(gCounter); // stop the game time countdown
+            gameOverDelay(); //invoke gameOverDelay function
         }
         if (i === 0) { // If the game finish when time is out
             timeLeft = i;
@@ -132,12 +132,8 @@ function gameCounter() {
     }, 1000);
 };
 
-function stopGameCountdown() {
-    clearInterval(gCounter); // stop the game time countdown
-    gameOverDelay(); //invoke gameOverDelay function
-};
-
-function gameOverDelay() { // 4 seconds delay before show the game results page
+// 2 seconds delay before show the game results page
+function gameOverDelay() { 
     let i = 2;
     setInterval(function () {
         i--;
@@ -147,6 +143,7 @@ function gameOverDelay() { // 4 seconds delay before show the game results page
     }, 1000);
 };
 
+// This function Checks if is there any record recorded, if not, a new record will be record
 function checkRecord() {
     if (currentRecord === null) {
         localStorage.setItem("timeRecord", timeResult); // If is a newRecord, localstorage will be updated 
@@ -158,6 +155,10 @@ function checkRecord() {
     }
 }
 
+/* After the game is over the results page will be displayed. 
+First it checks if game was lost, it's true, game over page is displayed
+If Game won, Game win page is displayed
+*/
 function showResultsPage() {
     $('#top-game-box').hide(); // hide game top div
     $('#game-board').hide(); // hide game board div 
@@ -185,14 +186,14 @@ function showResultsPage() {
 // Flip Card
 
 function flipCard() {
-    if (lockBoard)
+    if (lockBoard === true)
         return;
     if (this === firstCard)
         return;
 
     $(this).addClass('flip');
 
-    if (!flippedCard) { // If card is not flipped
+    if (!flippedCard) { 
         flippedCard = true;
         firstCard = this;
         return;
