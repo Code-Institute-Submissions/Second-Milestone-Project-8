@@ -121,20 +121,14 @@ function gameCounter() {
             lockBoard = true;
             checkRecord();
             clearInterval(gCounter); // stop the game time countdown
-            gameOverDelay(); //invoke gameOverDelay function
+            setTimeout(showResultsPage, 2000); // 2 seconds delay before show the game results page
         }
         if (i === 0) { // If the game finish when time is out
             timeLeft = i;
             lockBoard = true;
-            gameOverDelay(); //invoke gameOverDelay function
+            setTimeout(showResultsPage, 2000); // 2 seconds delay before show the game results page
         }
-
     }, 1000);
-};
-
-// 2 seconds delay before show the game results page
-function gameOverDelay() { 
-    setTimeout(showResultsPage, 2000); // 2 seconds delay before show the game results page
 };
 
 // This function Checks if is there any record recorded, if not, a new record will be record
