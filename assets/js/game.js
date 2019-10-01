@@ -96,17 +96,22 @@ This function check the difficult level selection value in seconds and create a 
 function gameCounter() {
     const dataCheck = localStorage.getItem("levelSelectionSeconds")
     let i;
+    let gameTime;
+    
     if (dataCheck === "9") {
         $("#game-countdown").html("45");
         i = 45;
+        gameTime = 45;
     }
     if (dataCheck === "6") {
         $("#game-countdown").html("30");
         i = 30;
+        gameTime = 30;
     }
     if (dataCheck === "4") {
         $("#game-countdown").html("20");
         i = 20;
+        gameTime = 20;
     };
 
     const gCounter = setInterval(function () {
@@ -117,7 +122,7 @@ function gameCounter() {
         }
         if (matchCounter === 6) { // If all 12 cards match - Stop countdown
             timeLeft = i;
-            timeResult = 30 - timeLeft // Time result is 30 seconds minus the time spent to match all cards
+            timeResult = gameTime - timeLeft // Time result is initial time minus the time left
             lockBoard = true;
             checkRecord();
             clearInterval(gCounter); // stop the game time countdown
@@ -141,8 +146,8 @@ function checkRecord() {
 
 /* After the game is over the results page will be displayed. 
 First it checks if game was lost, it's true, game over page is displayed
-If Game won, Game win page is displayed
-*/
+If Game won, Game win page is displayed */
+
 function showResultsPage() {
     $('#top-game-box').hide(); // hide game top div
     $('#game-board').hide(); // hide game board div 
