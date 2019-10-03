@@ -13,9 +13,13 @@ let timeResult;
 let currentRecord = localStorage.getItem("timeRecord");
 let newRecord = false;
 
-// INDEX ----------------------------------------
+/* INDEX ----------------------------------------  */
+$('.game-instructions-text').hide();
+$('.game-instructions-text.easy').show();
 
 // Level Selection and instructions - button and text
+
+/* This function checks which difficulty level has been selected and displays its correct instruction text. */
 $('.mode').click(function () {
     const modeSeconds = {
         "easy": 9,
@@ -23,22 +27,12 @@ $('.mode').click(function () {
         "hard": 4
     };
     const mode = $(this).data("mode");
-    localStorage.setItem("levelSelectionSeconds", modeSeconds[mode]);
-
-    if (mode === 'easy') {
-        $('#game-instructions-text').html("1. In EASY MODE you will have 8 seconds to memorize the game board cards.<br>2. After 8 seconds all cards will be dealt face down and the game will begin.<br>3. You will have 45 seconds to find all pairs. Each attempt, right or wrong, will be counted and will set your final score.<br>4. The game ends after the player matches all pairs or the time is up.");
-    }
-    // By default EASY MODE is selected, after click in another mode, the active class from easy-mode is removed
-    if (mode === 'normal') {
-        $('.mode').removeClass("active"); 
-        $('#game-instructions-text').html("1. In NORMAL MODE you will have 5 seconds to memorize the game board cards.<br>2. After 5 seconds all cards will be dealt face down and the game will begin.<br>3. You will have 30 seconds to find all pairs. Each attempt, right or wrong, will be counted and will set your final score.<br>4. The game ends after the player matches all pairs or the time is up.");
-    }
-    // By default EASY MODE is selected, after click in another mode, the active class from easy-mode is removed
-    if (mode === 'hard') {
-        $('.mode').removeClass("active"); 
-        $('#game-instructions-text').html("1. In HARD MODE you will have 3 seconds to memorize the game board cards.<br>2. After 3 seconds all cards will be dealt face down and the game will begin.<br>3. You will have 20 seconds to find all pairs. Each attempt, right or wrong, will be counted and will set your final score.<br>4. The game ends after the player matches all pairs or the time is up.");
-    }
+    localStorage.setItem("levelSelectionSeconds", modeSeconds[mode]);   
+    $('.game-instructions-text').hide();
+    $('.game-instructions-text').filter('.' + mode).show();
+    $('.mode.active').removeClass('active');  // remove bootstrap btn active decoration from Easy mode after select another level mode
 })
+
 
 // function to check if the player has selected any difficulty level, if not,  Easy mode is default.
 $('#play-game-button').click(function () {
@@ -56,7 +50,7 @@ $('#result-page-wrap').hide();
 
 //MEMORIZE CARDS - ALL CARDS OPENED
 // When invoked all cards are show and the board is locked to avoid any user click
-function memorizeCards() {
+function memorizeShowCards() {
     lockBoard = true;
     $(cards).addClass('flip');
     return;
@@ -77,7 +71,7 @@ This function check the difficult level selection value in seconds and create a 
         i--;
         if (i >= 0) {
             $('#memorize-countdown').html(i);
-            memorizeCards(); // Show game cards before counter start
+            memorizeShowCards(); // Show game cards before counter start
         }
         if (i === 0) {
             clearInterval(i);
@@ -97,7 +91,7 @@ function gameCounter() {
     const dataCheck = localStorage.getItem("levelSelectionSeconds")
     let i;
     let gameTime;
-    
+
     if (dataCheck === "9") {
         $("#game-countdown").html("45");
         i = 45;
@@ -182,7 +176,7 @@ function flipCard() {
 
     $(this).addClass('flip');
 
-    if (!flippedCard) { 
+    if (!flippedCard) {
         flippedCard = true;
         firstCard = this;
         return;
@@ -205,7 +199,6 @@ function attempts() {
 // Card Match
 function checkForMatch() {
     let cardMatch = firstCard.dataset.name === secondCard.dataset.name; // if dataset-name of first card flipped is equal to second card 
-
     if (cardMatch === true) {
         disableCards(); // invoke function to disable matched cards
         matchCounter++; // Each Match add matchCounter +1 -- needed for finish game when all cards are matched

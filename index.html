@@ -6,14 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>World Landmarks Memory Game</title>
-       <!-- favicon -->
-       <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
-       <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <!-- favicon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
     <!-- Styles -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        type="text/css" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+        integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
     <!-- My own style sheet -->
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
     <!-- Scripts -->
@@ -32,7 +33,7 @@
         <div class="row difficulty-level-text">DIFFICULTY LEVEL</div>
         <div class="row difficulty-level-button">
             <div class="btn-group-sm btn-group-justified" required>
-                <button type="button" class="btn btn-dark active mode" data-mode="easy">EASY</button>
+                <button type="button" class="btn btn-dark mode active" data-mode="easy">EASY</button>
                 <button type="button" class="btn btn-dark mode" data-mode="normal">NORMAL</button>
                 <button type="button" class="btn btn-dark mode" data-mode="hard">HARD</button>
             </div>
@@ -40,12 +41,27 @@
     </section>
     <section class="col-10 col-md-7 col-xl-4 mx-auto game-instructions-box">
         <div id="game-instructions-title" class="row game-instructions-title">GAME INSTRUCTIONS</div>
-        <div id="game-instructions-text" class="row game-instructions-text">1. In easy mode you will have 8 seconds to memorize the game board cards.<br>
+        <div class="row game-instructions-text easy">1. In EASY MODE you will have 8 seconds to
+            memorize the game board cards.<br>
             2. After 8 seconds all cards will be dealt face down and the game will begin.<br>
-            3. You will have 45 seconds to match all pairs. Each attempt, right or wrong, will be counted and will set your final score.<br>
+            3. You will have 45 seconds to match all pairs. Each attempt, right or wrong, will be counted and will set
+            your final score.<br>
+            4. The game ends after the player matches all pairs or the time is up."</div>
+        <div class="row game-instructions-text normal">1. In NORMAL MODE you will have 5 seconds to
+            memorize the game board cards.<br>
+            2. After 5 seconds all cards will be dealt face down and the game will begin.<br>
+            3. You will have 30 seconds to match all pairs. Each attempt, right or wrong, will be counted and will set
+            your final score.<br>
+            4. The game ends after the player matches all pairs or the time is up."</div>
+        <div class="row game-instructions-text hard">1. In HARD MODE you will have 3 seconds to
+            memorize the game board cards.<br>
+            2. After 3 seconds all cards will be dealt face down and the game will begin.<br>
+            3. You will have 20 seconds to match all pairs. Each attempt, right or wrong, will be counted and will set
+            your final score.<br>
             4. The game ends after the player matches all pairs or the time is up."</div>
     </section>
-    <a href="game.html" role="button" id="play-game-button" class="col-10 col-md-6 col-lg-4 col-xl-3 mx-auto btn btn-outline-dark start-game-box">
+    <a href="game.html" role="button" id="play-game-button"
+        class="col-10 col-md-6 col-lg-4 col-xl-3 mx-auto btn btn-outline-dark start-game-box">
         <div class="row play-button">
             <i class="far fa-play-circle" aria-hidden="true"></i>
         </div>

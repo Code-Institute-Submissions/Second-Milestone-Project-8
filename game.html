@@ -10,11 +10,11 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
     <!-- Styles -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        data-name="brazil" type="text/css" data-name="brazil" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"
-        data-name="brazil">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+        integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
     <!-- My own style sheet -->
     <link rel="stylesheet" href="assets/css/style.css" data-name="brazil" type="text/css" data-name="brazil" />
     <!-- Scripts -->
@@ -42,11 +42,19 @@
         <div id="top-game-box" class="top-game-box">
             <div class="top-game-title">
                 <div class="attempts-title">ATTEMPTS</div>
+                <div class="game-stop-box"></div>
                 <div class="countdown-title">TIME</div>
             </div>
             <div class="top-game-counters">
                 <div class="attempts-box">
                     <div id="attempts-counter" class="attempts-counter">0</div>
+                </div>
+                <div class="game-stop-box">
+                    <div class="back-main-button">
+                        <a href="index.html" role="button" class="btn game-back-main">
+                            <i class="fas fa-home" aria-hidden="true"></i>
+                        </a>
+                    </div>
                 </div>
                 <div class="counter-box">
                     <div id="game-countdown" class="time-countdown">30</div>
