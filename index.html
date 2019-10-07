@@ -18,28 +18,27 @@
     <!-- My own style sheet -->
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
     <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" data-name="brazil"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous" data-name="brazil">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous" data-name="brazil">
     </script>
 </head>
 
 <body>
     <header class="col-11 col-md-8 mx-auto index-header">
         <div class="row banner-game-box">
-            <img class="banner-img" src="assets/images/banner-game.png">
+            <img class="banner-img" src="assets/images/banner-game.png" alt="World Landmarks Memory Game">
         </div>
     </header>
-    <section class="col-10 col-md-7 col-xl-4 mx-auto level-selection-box">
+    <div class="col-10 col-md-7 col-xl-4 mx-auto level-selection-box">
         <div class="row difficulty-level-text">DIFFICULTY LEVEL</div>
         <div class="row difficulty-level-button">
-            <div class="btn-group-sm btn-group-justified" required>
+            <div class="btn-group-sm btn-group-justified">
                 <button type="button" class="btn btn-dark mode active" data-mode="easy">EASY</button>
                 <button type="button" class="btn btn-dark mode" data-mode="normal">NORMAL</button>
                 <button type="button" class="btn btn-dark mode" data-mode="hard">HARD</button>
             </div>
         </div>
-    </section>
-    <section class="col-10 col-md-7 col-xl-4 mx-auto game-instructions-box">
+    </div>
+    <div class="col-10 col-md-7 col-xl-4 mx-auto game-instructions-box">
         <div id="game-instructions-title" class="row game-instructions-title">GAME INSTRUCTIONS</div>
         <div class="row game-instructions-text easy">1. In EASY MODE you will have 8 seconds to
             memorize the game board cards.<br>
@@ -59,7 +58,7 @@
             3. You will have 20 seconds to match all pairs. Each attempt, right or wrong, will be counted and will set
             your final score.<br>
             4. The game ends after the player matches all pairs or the time is up.</div>
-    </section>
+    </div>
     <a href="game.html" role="button" id="play-game-button"
         class="col-10 col-md-6 col-lg-4 col-xl-3 mx-auto btn btn-outline-dark start-game-box">
         <div class="row play-button">

@@ -1,4 +1,4 @@
-  ![World Landmarks Memory game banner image](../images/banner-game.png "World Landmarks Memory Game Banner")
+  ![World Landmarks Memory game banner image](assets/images/banner-game.png "World Landmarks Memory Game Banner")
 
 
 This memory game is designed to honor some of the best world's landmarks while being a challenging and entertaining game.
@@ -91,7 +91,7 @@ These wireframes was designed with Balsamiq 3 tool. That was the first version o
 
 ## Features
 
-####Main Page
+### Main Page
 
 **Difficulty Level Selection**
    - On the main page there is the difficulty selection mode. There are 3 levels for the player to choose, easy, normal and hard. 
@@ -111,7 +111,7 @@ These wireframes was designed with Balsamiq 3 tool. That was the first version o
   - After the difficulty mode is selected, the player will have to click the PLAY GAME button to first display the MEMORIZE screen with all 12 cards face up with the countdown.
   Right after the countdown is over, all cards are dealt face down and the game begins. 
 
-####Game Page
+### Game Page
 
   **Attempts counter**
   - Located above the game board at the top of the page, the attempts counter counts the number of attempts the player has taken in the current game. 
@@ -134,7 +134,7 @@ These wireframes was designed with Balsamiq 3 tool. That was the first version o
   - After all cards match the game is over and the result screen is displayed after 2 seconds.
   - If time runs out before all cards match, the game over screen is displayed.
 
-####Result Page
+### Result Page
 
 **Emoticon**
 - When the result page is displayed, if the player wins the match a smiley emoticon will be displayed. In case the player has lost the game a sad face emoticon will be displayed.
