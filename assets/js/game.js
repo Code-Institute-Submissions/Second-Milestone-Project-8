@@ -1,12 +1,9 @@
 // ---------  Variables ---------- //
-let levelSelectionSeconds;
-let countdownMemorize;
 const cards = document.querySelectorAll('.cards');
 let attemptsCounter = 0;
 let flippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
-let gameInstructions;
 let matchCounter = 0;
 let timeLeft = 0;
 let timeResult;
@@ -31,7 +28,7 @@ $('.mode').click(function () {
     $('.game-instructions-text').hide();
     $('.game-instructions-text').filter('.' + mode).show();
     $('.mode.active').removeClass('active');  // remove bootstrap btn active decoration from Easy mode after select another level mode
-})
+});
 
 
 // function to check if the player has selected any difficulty level, if not,  Easy mode is default.
@@ -40,7 +37,7 @@ $('#play-game-button').click(function () {
         localStorage.setItem("levelSelectionSeconds", 9);
         return;
     }
-})
+});
 
 //hide top-game-box div while memorize is show
 $('#top-game-box').hide();
@@ -54,7 +51,7 @@ function memorizeShowCards() {
     lockBoard = true;
     $(cards).addClass('flip');
     return;
-};
+}
 
 // When memorize time is over all the cards are hide again and board click is unlocked
 function memorizeHideCards() {
@@ -85,10 +82,12 @@ This function check the difficult level selection value in seconds and create a 
 
 })();
 
+/* This function gets the game mode selected value in seconds in localStorage and set a countdown value based on it.
+After that it sets a seInterval to start the counter. After finish the game is displayed a results page or with results or game over page */ 
 //GAME COUNTER -  Easy Mode = 45 sec , Normal Mode = 30 sec, Hard mode = 20 sec
 
 function gameCounter() {
-    const dataCheck = localStorage.getItem("levelSelectionSeconds")
+    const dataCheck = localStorage.getItem("levelSelectionSeconds");
     let i;
     let gameTime;
 
@@ -106,7 +105,7 @@ function gameCounter() {
         $("#game-countdown").html("20");
         i = 20;
         gameTime = 20;
-    };
+    }
 
     const gCounter = setInterval(function () {
         i--;
@@ -116,7 +115,7 @@ function gameCounter() {
         }
         if (matchCounter === 6) { // If all 12 cards match - Stop countdown
             timeLeft = i;
-            timeResult = gameTime - timeLeft // Time result is initial time minus the time left
+            timeResult = gameTime - timeLeft; // Time result is initial time minus the time left
             lockBoard = true;
             checkRecord();
             clearInterval(gCounter); // stop the game time countdown
@@ -128,7 +127,7 @@ function gameCounter() {
             setTimeout(showResultsPage, 2000); // 2 seconds delay before show the game results page
         }
     }, 1000);
-};
+}
 
 // This function Checks if is there any record recorded, if not, a new record will be record
 function checkRecord() {
@@ -145,13 +144,13 @@ If Game won, Game win page is displayed */
 function showResultsPage() {
     $('#top-game-box').hide(); // hide game top div
     $('#game-board').hide(); // hide game board div 
-    $('#result-page-wrap').show() // show result page div
+    $('#result-page-wrap').show(); // show result page div
 
     if (timeLeft === 0) { //GAME LOST 
         $('#result-message').html('YOUR TIME IS UP!!!'); // show TIME IS UP message
         $('#result-emoticon').removeClass('fa-smile').addClass('fa-frown'); // show frown emoticon
-        $('#game-win-box').hide() // hide result time box div
-        $('#result-attempts').hide() // hide result attempts box div
+        $('#game-win-box').hide(); // hide result time box div
+        $('#result-attempts').hide(); // hide result attempts box div
 
     } else { // GAME WIN
         if (newRecord === true) { //Check for a new record
@@ -214,7 +213,7 @@ function disableCards() { // after a card match this function is invoked to disa
 }
 
 function unflipCards() { // this function unflip the cards
-    lockBoard = true;
+    lockBoard = true; // lock the board until the card is unfliped
 
     setTimeout(() => {
         $(firstCard).removeClass('flip'); // remove class flip from first card
@@ -237,3 +236,11 @@ function resetBoard() {
 })();
 
 cards.forEach(card => card.addEventListener('click', flipCard));
+
+/* If the player click in MAIN MENU button, this listener invoke a function to set for default EASY value (9) to the local storage */
+$('.results-main-menu').click( function() {
+    if (localStorage.getItem("levelSelectionSeconds") != null) {
+        localStorage.setItem("levelSelectionSeconds", 9);
+        return;
+    }
+});
