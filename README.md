@@ -3,7 +3,9 @@
 
 This memory game is designed to honor some of the best world's landmarks while being a challenging and entertaining game.
 There is no age restriction for this game, but it will be more enjoyable by children over 8 years and adults.
+
 [Play the World Landmarks Memory Game here](https://rodrigoneumann.github.io/Second-Milestone-Project/)
+
 
 ***
 
@@ -162,7 +164,7 @@ In the future I would like to add on this project:
 #### New functions and menus
 
 **New landmarks**
--The idea is to gradually increase the number of landmarks to approximately 30. Thus, each game will be randomly chosen the 6 that will be available for that game. This will make the game more attractive and interesting to players.
+- The idea is to gradually increase the number of landmarks to approximately 30. Thus, each game will be randomly chosen the 6 that will be available for that game. This will make the game more attractive and interesting to players.
 
 **LeaderBoard**
 - Implement a database so I can create and manage a leaderboard.
