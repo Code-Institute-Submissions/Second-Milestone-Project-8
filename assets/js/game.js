@@ -165,7 +165,9 @@ function showResultsPage() {
     }
 }
 
-// Flip Card
+/* Flip Card
+ This code model from freeCodeCamp.org in this video https://www.youtube.com/watch?v=ZniVgo8U7ek  and adapted to my needs
+*/ 
 
 function flipCard() {
     if (lockBoard === true)
@@ -195,7 +197,9 @@ function attempts() {
     $('#attempts-counter').html(attemptsCounter);
 }
 
-// Card Match
+/* Check for Match
+This code model from freeCodeCamp.org in this video https://www.youtube.com/watch?v=ZniVgo8U7ek  and adapted to my needs
+*/ 
 function checkForMatch() {
     let cardMatch = firstCard.dataset.name === secondCard.dataset.name; // if dataset-name of first card flipped is equal to second card 
     if (cardMatch === true) {
@@ -206,12 +210,18 @@ function checkForMatch() {
     }
 }
 
+/* Disable Cards matched
+This code model from freeCodeCamp.org in this video https://www.youtube.com/watch?v=ZniVgo8U7ek  and adapted to my needs
+*/ 
 function disableCards() { // after a card match this function is invoked to disable that cards
     firstCard.removeEventListener('click', flipCard); //remove the event click from first flipcard
     secondCard.removeEventListener('click', flipCard); //remove the event click from second flipcard
     resetBoard();
 }
 
+/* UnFlip Card
+This code model from freeCodeCamp.org in this video https://www.youtube.com/watch?v=ZniVgo8U7ek  and adapted to my needs
+*/ 
 function unflipCards() { // this function unflip the cards
     lockBoard = true; // lock the board until the card is unfliped
 
@@ -223,18 +233,23 @@ function unflipCards() { // this function unflip the cards
     }, 1000);
 }
 
+/* Function to reset board
+This code model from freeCodeCamp.org in this video https://www.youtube.com/watch?v=ZniVgo8U7ek  and adapted to my needs
+*/ 
 function resetBoard() {
     [flippedCard, lockBoard] = [false, false];
     [firstCard, secondCard] = [null, null];
 }
 
+/* Game board cards Shuffle
+This code model from freeCodeCamp.org in this video https://www.youtube.com/watch?v=ZniVgo8U7ek  and adapted to my needs
+*/ 
 (function shuffle() { // This function select each card on the board and shuffle to another position
     cards.forEach(card => {
         let cardPosition = Math.floor(Math.random() * 12);
         card.style.order = cardPosition;
     });
 })();
-
 cards.forEach(card => card.addEventListener('click', flipCard));
 
 /* If the player click in MAIN MENU button, this listener invoke a function to set for default EASY value (9) to the local storage */
