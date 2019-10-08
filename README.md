@@ -187,6 +187,8 @@ A further idea is to create a mobile version that runs natively on Android and I
     - The project uses **Font Awesome** to provide some icons. 
 - [Google Fonts](https://fonts.google.com/)
     - The project uses **Google fonts** to provide 'Roboto' font.
+- [Dev Tools](https://www.google.com/chrome/)
+    - This project used the Dev Tools from 3 browsers: Chrome, Firefox and Safari. They were necessary to keep track and test the code and development.
 - [GitHub](https://github.com/)
     - This project uses **GitHub** to store and share all project code remotely. 
     - **GitHub Pages** is used to hosting the project live demo.
@@ -307,4 +309,4 @@ Very Special Thanks to:
 - All 76 people, including family, friends, and colleagues who have tested the game on their real devices, reporting to me about any usability issues and giving improvement tips to improve the gaming experience.
 - To all of the Code Institute Slack community for the help in my issues and review to my project code.
 
-####This project is designed for educational purposes only.
+#### This project is designed for educational purposes only.
