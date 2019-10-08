@@ -284,9 +284,9 @@ git clone https://github.com/rodrigoneumann/Second-Milestone-Project.git
 ```
 7. Press Enter. Your local clone will be created.
 
-Your local clone is now created. If you would like further documentation on cloning a repository, you can read [Cloning a repository](https://help.github.com/en/articles/cloning-a-repository)
+If you would like further documentation on cloning a repository, you can read [Cloning a repository](https://help.github.com/en/articles/cloning-a-repository)
 
-##Credits
+## Credits
 
 ### Content
 
