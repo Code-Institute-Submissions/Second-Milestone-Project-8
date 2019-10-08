@@ -162,16 +162,16 @@ In the future I would like to add on this project:
 #### New functions and menus
 
 **New landmarks**
-The idea is to gradually increase the number of landmarks to approximately 30. Thus, each game will be randomly chosen the 6 that will be available for that game. This will make the game more attractive and interesting to players.
+-The idea is to gradually increase the number of landmarks to approximately 30. Thus, each game will be randomly chosen the 6 that will be available for that game. This will make the game more attractive and interesting to players.
 
 **LeaderBoard**
-Implement a database so I can create and manage a leaderboard.
+- Implement a database so I can create and manage a leaderboard.
 
 **Sound**
-Add sounds to clicks and buttons to make the game more fun.
+- Add sounds to clicks and buttons to make the game more fun.
 
 #### Mobile version
-A further idea is to create a mobile version that runs natively on Android and IOS.
+- A further idea is to create a mobile version that runs natively on Android and IOS.
 
 
 ## Technologies Used
